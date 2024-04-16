@@ -20,7 +20,7 @@ body {
 }
 
 section {
-  padding: 20px 0 0 0 ;
+  padding: 20px 0 0 0;
 }
 
 ::-webkit-scrollbar {
@@ -43,25 +43,3 @@ section {
 
 
 /* MB <= 767 - TB <= 1023 - */
-@media screen and (max-width: 767px) {
-  header {
-    font-size: 20px;
-    margin: 0 0 30px;
-
-    & span {
-      font-size: 20px;
-    }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-}

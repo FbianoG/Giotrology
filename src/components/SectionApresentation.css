@@ -82,7 +82,8 @@
 @media screen and (max-width: 767px) {
 
   .sectionApresentation {
-    margin: 0 0 50px;
+    margin: 0 0 100px;
+    padding: 100px 0 0 0;
   }
 
   .contentSection {
@@ -96,6 +97,10 @@
   .contentSection {
     & .contentButtons {
       gap: 10px;
+    }
+
+    & h1 {
+      font-size: 60px;
     }
   }
 
