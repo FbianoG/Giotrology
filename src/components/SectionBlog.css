@@ -32,12 +32,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 20px;
+    gap: 80px 20px;
+    margin: 0 0 80px;
 }
 
 .blogCard {
     width: 400px;
-    height: 500px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -60,7 +60,7 @@
         font-size: 18px;
     }
 
-    & button {
+    & a {
         background: transparent;
         width: fit-content;
         border: none;
@@ -69,11 +69,55 @@
         margin: 0 0 0 auto;
         transition: 400ms;
         cursor: pointer;
+        text-decoration: none;
     }
 
-    & button:hover {
+    & a:hover {
         opacity: 0.5;
     }
+}
+
+
+.cardCount {
+    width: 200px;
+    height: 50px;
+    background: #fff1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    
+}
+
+.cardCount span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #fdfdfd;
+    font-family: "Smythe", system-ui;
+}
+
+.cardCount button {
+    background: #fff1;
+    border: none;
+    color: #888;
+    font-size: 35px;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+.cardCount button:hover {
+    color: #fdfdfd;
+    background: #fff3;
+}
+
+.sectionBlog label {
+    display: block;
+    margin: 0 auto 5px;
+    width: fit-content;
+    color: #666;
 }
 
 
