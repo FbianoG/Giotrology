@@ -81,7 +81,6 @@
 .cardCount {
     width: 200px;
     height: 50px;
-    background: #fff1;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     border-radius: 10px;
@@ -100,7 +99,7 @@
 }
 
 .cardCount button {
-    background: #fff1;
+    background: transparent;
     border: none;
     color: #888;
     font-size: 35px;
@@ -110,7 +109,7 @@
 
 .cardCount button:hover {
     color: #fdfdfd;
-    background: #fff3;
+    background: #fff1;
 }
 
 .sectionBlog label {
