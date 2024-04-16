@@ -1,11 +1,38 @@
 header {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  align-items: center;
+  height: 70px;
+
+  & nav {
     display: flex;
     gap: 20px;
     justify-content: center;
     align-items: center;
-    height: 70px;
-    color: #fdfdfd;
-    font-size: 25px;
   }
-  
-  
+
+  & nav:hover a:not(:hover) {
+    opacity: 0.3;
+    filter: blur(0.5px);
+  }
+
+  & a {
+    color: #fdfdfd;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 400ms;
+    border-bottom: 2px solid transparent;
+  }
+
+  & a:hover {
+    /* opacity: 0.5; */
+    border-bottom-color: #5362ae;
+  }
+
+  & .logo {
+    font-family: "Qwitcher Grypen", cursive;
+    color: #fdfdfd;
+    font-size: 50px;
+  }
+}

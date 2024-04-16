@@ -3,6 +3,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Josefin Sans", sans-serif;
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
 }
 
 body {
@@ -17,6 +19,23 @@ body {
   padding: 0 5%;
 }
 
+section {
+  padding: 20px 0 0 0 ;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #11161f;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5362ae;
+  border-radius: 3px;
+}
 
 
 
@@ -33,8 +52,8 @@ body {
       font-size: 20px;
     }
   }
-  
-  
+
+
 
 
 

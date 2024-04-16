@@ -3,7 +3,7 @@ import "./SectionPrice.css"
 export default function SectionPrice() {
 
     return (
-        <section className="sectionPrice">
+        <section className="sectionPrice" id="sectionPrice">
             <h1 className="title">Nossos preços</h1>
             <div className="listPrice">
                 <div className="cardPrice">

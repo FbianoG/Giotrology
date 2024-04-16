@@ -5,9 +5,9 @@ import "./SectionBlog.css"
 export default function SectionBlog() {
 
     return (
-        <section className="sectionBlog">
+        <section className="sectionBlog" id="sectionBlog">
 
-            <div className="contentSign">
+            <div className="contentBlog">
                 <span>Blog</span>
                 <h1>Fique por dentro de tudo sobre astrologia</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus facilis odio esse sint provident ipsum, perspiciatis aut quaerat </p>

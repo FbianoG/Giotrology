@@ -6,9 +6,16 @@ export default function Header() {
 
     return (
         <header>
-            <span>Início</span>
-            <span>Preço</span>
-            <span>Mapa Astral</span>
+
+            <div className="logo">
+                Giotrology
+            </div>
+            <nav>
+                <a href="#sectionApresentation">Início</a>
+                <a href="#sectionBlog">Blog</a>
+                <a href="#sectionSign">Signos</a>
+                <a href="#sectionPrice">Mapa Astral</a>
+            </nav>
 
         </header>
     )

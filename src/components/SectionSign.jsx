@@ -4,7 +4,7 @@ import "./SectionSign.css"
 export default function SectionSign() {
 
     return (
-        <section className='sectionSign'>
+        <section className='sectionSign' id="sectionSign">
 
             <div className="contentSign">
                 <span>Signos do Zodiáco</span>

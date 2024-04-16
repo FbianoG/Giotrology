@@ -1,16 +1,15 @@
 .sectionApresentation {
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
-  height: 590px;
-
-  margin: 0 0 200px;
+  /* height: 600px; */
+  margin: 0 0 100px;
+  /* border: 1px solid red; */
 }
 
 
 .contentSection {
-
+  width: 50%;
 
   & span {
     color: #524196;
@@ -29,6 +28,7 @@
     font-size: 20px;
     color: #ddd;
     margin: 0 0 50px;
+    font-weight: 300;
   }
 
   & .contentButtons {
@@ -64,18 +64,16 @@
   }
 }
 
+
 .imageSection {
-  /* border: 1px solid green; */
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 590px;
+}
 
-  & img {
-    width: 100%;
-    object-fit: cover;
-    height: 100%;
-  }
+.imageSection img {
+  width: 100%;
 }
 
 
@@ -84,23 +82,22 @@
 @media screen and (max-width: 767px) {
 
   .sectionApresentation {
-    display: block;
     margin: 0 0 50px;
+  }
+
+  .contentSection {
+    width: 100%;
   }
 
   .imageSection {
     display: none;
   }
 
-
-
-
   .contentSection {
     & .contentButtons {
       gap: 10px;
     }
   }
-
 
 
 
