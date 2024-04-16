@@ -1,0 +1,59 @@
+footer {
+    background: url("https://www.pixel4k.com/wp-content/uploads/2019/03/stars-minimalism-space-digital-art_1551641886.jpg.webp");
+    background-attachment: fixed;
+    /* background-position: center; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    align-items: center;
+    padding: 0 5%;
+
+    width: 100%;
+    height: 300px;
+    position: relative;
+
+    & .backdrop {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to bottom, #0a0914, #0a0a1569);
+        background: linear-gradient(to bottom, #0a0a15, #0a0a1569);
+    }
+
+    & .description {
+        position: relative;
+    }
+
+    & h3 {
+        font-family: "Smythe", system-ui;
+        color: #fdfdfd;
+        font-size: 40px;
+        font-weight: 100;
+        margin: 0 0 10px;
+    }
+
+    & .descriptionData {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        color: #aaa;
+    }
+
+    & h1 {
+        font-family: "Qwitcher Grypen", cursive;
+        font-size: 100px;
+        font-weight: 100;
+        color: #fdfdfd;
+    }
+
+    & .logo {
+        position: relative;
+        width: fit-content;
+    }
+
+
+
+}

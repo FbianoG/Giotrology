@@ -1,0 +1,71 @@
+.sectionSign {
+    margin: 0 0 100px;
+  }
+  
+  .contentSign {
+  
+  
+    & span {
+      color: #524196;
+      font-size: 20px;
+    }
+  
+    & h1 {
+      font-family: "Smythe", system-ui;
+      color: #fdfdfd;
+      font-size: 60px;
+      font-weight: 300;
+      width: 50%;
+      margin: 20px 0 30px 0;
+    }
+  
+    & p {
+      font-size: 20px;
+      color: #aaa;
+      width: 50%;
+      font-weight: 300;
+      margin: 0 0 50px;
+    }
+
+  }
+  
+  .listSign {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 20px;
+  
+    & .cardSign {
+      width: 350px;
+      height: 200px;
+      border: 1px solid #fff3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: 400ms;
+    }
+  
+    & img {
+      width: 90px;
+      height: 80px;
+    }
+  
+    & h3 {
+      font-family: "Smythe", system-ui;
+      color: #fdfdfd;
+      font-size: 40px;
+      font-weight: normal;
+    }
+  
+    & span {
+      color: #555;
+      font-size: 17px;
+    }
+  
+    & .cardSign:hover {
+  
+      border-color: #5362ae;
+    }
+  }
