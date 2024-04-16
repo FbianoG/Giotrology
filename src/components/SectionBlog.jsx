@@ -35,7 +35,7 @@ export default function SectionBlog() {
 
     useEffect(() => {
         setBlogs(Blogs)
-        console.log(blogs);
+        // console.log(blogs);
     }, [])
 
 
