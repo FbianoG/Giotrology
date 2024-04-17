@@ -20,7 +20,7 @@ footer {
         top: 0;
         left: 0;
         background: linear-gradient(to bottom, #0a0914, #0a0a1569);
-        background: linear-gradient(to bottom, #0a0a15, #0a0a1569);
+        background: linear-gradient(to bottom, #10121e, #0a0a1569);
     }
 
     & .description {

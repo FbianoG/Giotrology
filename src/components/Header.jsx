@@ -11,7 +11,7 @@ export default function Header() {
                 Giotrology
             </div>
             <nav>
-                <a href="#sectionApresentation">Início</a>
+                <a href="/">Início</a>
                 <a href="#sectionBlog">Blog</a>
                 <a href="#sectionSign">Signos</a>
                 <a href="#sectionPrice">Mapa Astral</a>

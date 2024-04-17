@@ -1,19 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Josefin Sans", sans-serif;
-  scroll-behavior: smooth;
-  -webkit-scroll-behavior: smooth;
-}
 
-body {
-  width: 100%;
-  /* height: 100vh; */
-  background: linear-gradient(to bottom, #202a3a, #080611);
-  color: #202a3a;
-  overflow-y: scroll;
-}
 
 .content {
   padding: 0 5%;
@@ -38,8 +23,8 @@ section {
 }
 
 
-
-
-
-
-/* MB <= 767 - TB <= 1023 - */
+:root {
+  --corBtn: #5362ae;
+  --corDarkText: #524196;
+  --corWhiteText: #fdfdfd
+}

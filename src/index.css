@@ -1,2 +1,15 @@
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;
+    scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
+  }
+  
+  body {
+    height: 100vh;
+    background: linear-gradient(to bottom, #202a3a, #080611);
+    background-attachment: fixed;
+  }
 

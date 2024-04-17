@@ -1,37 +1,23 @@
-import { useState } from 'react'
-import './App.css'
-import Header from './components/Header'
-import SectionBlog from './components/SectionBlog'
-import SectionPrice from './components/SectionPrice'
-import SectionSign from './components/SectionSign'
-import SectionApresentation from './components/SectionApresentation'
-import Footer from './components/Footer'
-
-
-
-
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Blog from './pages/Blog'
+import Painel from './pages/Painel'
 
 
 function App() {
 
 
   return (
-    <>
 
-      <Header />
-      <div className="content">
-        <SectionApresentation />
-        <SectionBlog />
-        <SectionSign />
-        <SectionPrice />
-      </div>
-      <Footer />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/painel" element={<Painel />} />
+      </Routes>
+    </Router>
 
 
-
-
-    </>
   )
 }
 
