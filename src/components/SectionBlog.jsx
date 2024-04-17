@@ -7,10 +7,8 @@ import "./SectionBlog.css"
 export default function SectionBlog() {
 
     const urlBack = "https://giotrology-back.vercel.app"
-
     const [blogs, setBlogs] = useState(false)
     const [numBlogs, setNumBlogs] = useState(false)
-
     const [countBlog, setCountBlog] = useState(1)
     const countPage = useRef()
 
@@ -78,10 +76,7 @@ export default function SectionBlog() {
                 <h1>Fique por dentro de tudo sobre astrologia</h1>
                 <p>Prepare-se para uma viagem fascinante rumo ao autoconhecimento e à compreensão dos desígnios celestiais.</p>
             </div>
-
             <div className="listBlog">
-
-
                 {numBlogs &&
                     numBlogs.map(element => (
                         <div key={element._id} className="blogCard">
@@ -92,23 +87,13 @@ export default function SectionBlog() {
                         </div>
                     ))
                 }
-
-
-
-
-
-
-
-
             </div>
-
             <label htmlFor=''>Página</label>
             <div className="cardCount">
                 <button onClick={previusPage}>-</button>
                 <span ref={countPage}></span>
                 <button onClick={nextPage}>+</button>
             </div>
-
 
         </section>
     )
