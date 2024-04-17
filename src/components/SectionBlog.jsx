@@ -1,17 +1,18 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import "./SectionBlog.css"
-import { useEffect } from "react"
+
 
 
 
 export default function SectionBlog() {
 
-
-    const [blogs, setBlogs] = useState(false)
-
     const urlBack = "https://giotrology-back.vercel.app"
 
+    const [blogs, setBlogs] = useState(false)
+    const [numBlogs, setNumBlogs] = useState(false)
 
+    const [countBlog, setCountBlog] = useState(1)
+    const countPage = useRef()
 
 
     async function getArticles() {
@@ -21,16 +22,51 @@ export default function SectionBlog() {
             headers: { "Content-Type": "application/json" }
         })
         const data = await response.json()
-        setBlogs(data)
+        if (response.ok) {
+            setBlogs(data)
+        }
     }
 
+    function name() {
+        countPage.current.textContent = countBlog
+        console.log(countBlog);
+        const newBlogs = blogs.filter((element, index) => {
+            if (index < countBlog * 4 && index >= (countBlog * 4) - 4) {
+                return element
+            }
+        })
+        setNumBlogs(newBlogs)
+    }
 
+    function nextPage() {
+        setCountBlog(countBlog + 1)
+    }
 
+    function previusPage() {
+        if (countBlog - 1 == 0) {
+            return
+        }
+        setCountBlog(countBlog - 1)
+    }
 
 
     useEffect(() => {
         getArticles()
     }, [])
+
+    useEffect(() => {
+        if (blogs) {
+            name()
+        }
+    }, [blogs])
+
+    useEffect(() => {
+        countPage.current.textContent = countBlog
+        console.log(countBlog)
+        if (blogs) {
+            name()
+        }
+    }, [countBlog])
 
 
 
@@ -46,8 +82,8 @@ export default function SectionBlog() {
             <div className="listBlog">
 
 
-                {blogs &&
-                    blogs.map(element => (
+                {numBlogs &&
+                    numBlogs.map(element => (
                         <div key={element._id} className="blogCard">
                             <img src={element.src} alt="" />
                             <h2>{element.title}</h2>
@@ -68,9 +104,9 @@ export default function SectionBlog() {
 
             <label htmlFor=''>Página</label>
             <div className="cardCount">
-                <button>-</button>
-                <span>01</span>
-                <button>+</button>
+                <button onClick={previusPage}>-</button>
+                <span ref={countPage}></span>
+                <button onClick={nextPage}>+</button>
             </div>
 
 

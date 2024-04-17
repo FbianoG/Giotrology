@@ -3,7 +3,7 @@ import "./Painel.css";
 
 export default function Painel() {
 
-
+    const urlBack = "https://giotrology-back.vercel.app"
     const createList = useRef()
     const title = useRef()
     const linkUrl = useRef()
@@ -40,7 +40,7 @@ export default function Painel() {
 
         }
         
-        const response = await fetch("http://localhost:3000/createArticle", {
+        const response = await fetch(`${urlBack}/createArticle`, {
             method: "POST",
             body: JSON.stringify(art),
             headers: { "Content-Type": "application/json" }

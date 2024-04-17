@@ -58,3 +58,16 @@ footer {
 
 
 }
+
+/* MB <= 767 - TB <= 1023 - */
+@media screen and (max-width: 767px) {
+
+    footer {
+        height: 400px;
+    }
+
+    .logo {
+        order: -1;
+        z-index: 1;
+    }
+}

@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import SectionTitleBlog from "../components/SectionTitleBlog";
+import Footer from "../components/Footer";
 
 
 export default function Blog() {
@@ -8,7 +9,7 @@ export default function Blog() {
         <>
             <Header />
             <SectionTitleBlog />
-
+            <Footer />
 
         </>
     )
