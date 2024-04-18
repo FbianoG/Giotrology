@@ -9,7 +9,7 @@ export default function Blog() {
         <>
             <Header />
             <SectionTitleBlog />
-            <FormEmail />
+            {/* <FormEmail /> */}
             <Footer />
 
         </>
