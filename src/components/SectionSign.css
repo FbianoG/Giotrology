@@ -92,11 +92,13 @@
 
 .cardSign:hover .signMain {
   animation: hidde 300ms both ease;
+  -webkit-animation: hidde 300ms both ease;
 }
 
 .cardSign:hover .signData {
   display: block;
   animation: show 300ms both 300ms ease;
+  -webkit-animation: show 300ms both 300ms ease;
 }
 
 
@@ -110,6 +112,27 @@
   100% {
     opacity: 0;
     display: none;
+  }
+}
+
+@keyframes show {
+  0% {
+
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@-webkit-keyframes show {
+  0% {
+
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
