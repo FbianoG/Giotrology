@@ -4,6 +4,7 @@ import urlBack from '../assets/api'
 
 export default function Painel() {
 
+    const alert = useRef()
     const createList = useRef()
     const title = useRef()
     const linkUrl = useRef()
@@ -44,14 +45,26 @@ export default function Painel() {
 
         }
 
-        const response = await fetch(`${urlBack}/createArticle`, {
-            method: "POST",
-            body: JSON.stringify(art),
-            headers: { "Content-Type": "application/json" }
-        })
+        try {
+            const response = await fetch(`${urlBack}/createArticle`, {
+                method: "POST",
+                body: JSON.stringify(art),
+                headers: { "Content-Type": "application/json" }
+            })
+            const data = await response.json()
+            if (response.ok) {
+                console.log(data)
+                alert.current.style.color = "green"
+                alert.current.textContent = data.message
+                setEditArticle(true)
+            } else {
+                alert.current.style.color = "red"
+                alert.current.textContent = data.message
 
-        const data = await response.json()
-        console.log(data)
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 
@@ -90,14 +103,17 @@ export default function Painel() {
                             <input type='text' name='' placeholder="Subtítulo 01" />
                             <textarea className="article1" placeholder='Parágrafo 01'></textarea>
                         </div>
+
                         <div className="formCreateArticleButtons">
                             <button onClick={createParagraph}>Add Parágrafo</button>
                             <button onClick={createSubTitle}>Add Subtítulo</button>
                             <button onClick={save}>Criar</button>
                         </div>
                     </div>
+
                 </>
             }
+            <h3 ref={alert} className='alertCreateArticle'></h3>
         </>
 
     )
