@@ -16,7 +16,7 @@ export default function SectionApresentation() {
 
             </div>
             <div className="imageSection">
-                <img src="/public/img/apresentationImg.svg" alt="Image astrology" />
+                <img src="/img/apresentationImg.svg" alt="Image astrology" />
             </div>
         </section>
     )
