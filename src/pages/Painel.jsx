@@ -1,12 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
 import "./Painel.css";
+import urlBack from '../assets/api'
 
 export default function Painel() {
 
-    const urlBack = "https://giotrology-back.vercel.app"
     const createList = useRef()
     const title = useRef()
     const linkUrl = useRef()
+    const editBtn = useRef()
+    const createBtn = useRef()
+
+    const [editArticle, setEditArticle] = useState(true)
 
     function createParagraph() {
         const count = createList.current.querySelectorAll('input').length
@@ -39,7 +43,7 @@ export default function Painel() {
             art.articles.push(newParagraphs)
 
         }
-        
+
         const response = await fetch(`${urlBack}/createArticle`, {
             method: "POST",
             body: JSON.stringify(art),
@@ -50,21 +54,51 @@ export default function Painel() {
         console.log(data)
     }
 
+
+
+
+    useEffect(() => {
+        if (editArticle) {
+            createBtn.current.style.opacity = "0.2"
+            createBtn.current.style.height = "35px"
+            editBtn.current.style.opacity = ""
+            editBtn.current.style.height = ""
+        } else {
+            editBtn.current.style.opacity = "0.2"
+            editBtn.current.style.height = "35px"
+            createBtn.current.style.opacity = ""
+            createBtn.current.style.height = ""
+        }
+    }, [editArticle])
+
     return (
-        <div className='formCreateArticle'>
-            <h2>Criar Novo Artigo</h2>
-            <input type='text' name='' placeholder="Título" ref={title} />
-            <br />
-            <input type='text' name='' placeholder="Link Imagem" ref={linkUrl} />
-            <div ref={createList} className='formParagraphs'>
-                <input type='text' name='' placeholder="Subtítulo 01" />
-                <textarea className="article1" placeholder='Parágrafo 01'></textarea>
-            </div>
-            <div className="formCreateArticleButtons">
-                <button onClick={createParagraph}>Add Parágrafo</button>
-                <button onClick={createSubTitle}>Add Subtítulo</button>
-                <button onClick={save}>Criar</button>
-            </div>
-        </div>
+        <>
+            <div className="headerPainel">
+                <button ref={editBtn} onClick={() => setEditArticle(true)}>Editar Artigos</button>
+                <button ref={createBtn} onClick={() => setEditArticle(false)}>Criar Artigo</button>
+            </ div>
+            {editArticle ?
+                ""
+                :
+                <>
+                    <div className='formCreateArticle'>
+                        <h2>Criar Novo Artigo</h2>
+                        <input type='text' name='' placeholder="Título" ref={title} />
+                        <br />
+                        <input type='text' name='' placeholder="Link Imagem" ref={linkUrl} />
+                        <div ref={createList} className='formParagraphs'>
+                            <input type='text' name='' placeholder="Subtítulo 01" />
+                            <textarea className="article1" placeholder='Parágrafo 01'></textarea>
+                        </div>
+                        <div className="formCreateArticleButtons">
+                            <button onClick={createParagraph}>Add Parágrafo</button>
+                            <button onClick={createSubTitle}>Add Subtítulo</button>
+                            <button onClick={save}>Criar</button>
+                        </div>
+                    </div>
+                </>
+            }
+        </>
+
     )
 }

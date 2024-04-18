@@ -12,62 +12,103 @@ footer {
     width: 100%;
     height: 300px;
     position: relative;
+}
 
-    & .backdrop {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: linear-gradient(to bottom, #0a0914, #0a0a1569);
-        background: linear-gradient(to bottom, #10121e, #0a0a1569);
-    }
+footer .backdrop {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, #0a0914, #0a0a1569);
+    background: linear-gradient(to bottom, #10121e, #0a0a1569);
+}
 
-    & .description {
-        position: relative;
-    }
+footer .description {
+    position: relative;
+}
 
-    & h3 {
-        font-family: "Smythe", system-ui;
-        color: #fdfdfd;
-        font-size: 40px;
-        font-weight: 100;
-        margin: 0 0 10px;
-    }
+footer h3 {
+    font-family: "Smythe", system-ui;
+    color: #fdfdfd;
+    font-size: 40px;
+    font-weight: 100;
+    margin: 0 0 10px;
+}
 
-    & .descriptionData {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        color: #aaa;
-        font-weight: 300;
-    }
-
-    & h1 {
-        font-family: "Qwitcher Grypen", cursive;
-        font-size: 100px;
-        font-weight: 100;
-        color: #fdfdfd;
-    }
-
-    & .logo {
-        position: relative;
-        width: fit-content;
-    }
-
-
+.descriptionData {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
 }
+
+.descriptionData a {
+    color: #aaa;
+    font-weight: 300;
+    text-decoration: none;
+    transition: 400ms;
+}
+
+.descriptionData a:hover {
+    opacity: 0.5;
+}
+
+footer h1 {
+    font-family: "Qwitcher Grypen", cursive;
+    font-size: 100px;
+    font-weight: 100;
+    color: #fdfdfd;
+}
+
+footer .logo {
+    position: relative;
+    width: fit-content;
+}
+
+.logoSocial {
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+    /* gap: 55px; */
+    align-items: center;
+    margin: 20px 0 0 0;
+}
+
+.logoSocial a {
+    text-decoration: none;
+    color: var(--corBtn);
+    display: flex;
+    align-items: center;
+}
+
+.logoSocial i {
+    font-size: 30px;
+    transition: 400ms;
+}
+
+.logoSocial i:hover {
+    opacity: 0.4;
+}
+
+
 
 /* MB <= 767 - TB <= 1023 - */
 @media screen and (max-width: 767px) {
 
     footer {
-        height: 400px;
+        height: 450px;
+        align-items: flex-start;
     }
 
     .logo {
         order: -1;
         z-index: 1;
+
+    }
+
+    .logoSocial {
+        margin: 55px 0 0 0;
     }
 }

@@ -15,12 +15,12 @@ export default function SectionPrice() {
 
                     <div className="cardDivisor"></div>
                     <div className="cardDescription">
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
+                        <span>Pergunte ao Astrólogo</span>
+                        <span>Suporte Online</span>
+                        <span>Consultoria Astral</span>
+                        <span>Interaja ao Vivo</span>
+                        <span>Análise de Futuro</span>
+                        {/* <span>Dúvidas</span> */}
                     </div>
                     <button>Consulte Agora</button>
                 </div>
@@ -29,16 +29,16 @@ export default function SectionPrice() {
                         10% OFF
                     </div>
                     <h3>Mapa Astral</h3>
-                    <h2 className="widgetPrice">R$35 <span>/ por consulta</span></h2>
+                    <h2 className="widgetPrice">R$65 <span>/ por consulta</span></h2>
 
                     <div className="cardDivisor"></div>
                     <div className="cardDescription">
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
+                        <span>Pergunte ao Astrólogo</span>
+                        <span>Suporte Online</span>
+                        <span>Consultoria Astral</span>
+                        <span>Interaja ao Vivo</span>
+                        <span>Análise de Futuro</span>
+                        {/* <span>Dúvidas</span> */}
                     </div>
                     <button>Consulte Agora</button>
                 </div>
@@ -47,16 +47,16 @@ export default function SectionPrice() {
                         10% OFF
                     </div>
                     <h3>Mapa Astral</h3>
-                    <h2 className="widgetPrice">R$35 <span>/ por consulta</span></h2>
+                    <h2 className="widgetPrice">R$90 <span>/ por consulta</span></h2>
 
                     <div className="cardDivisor"></div>
                     <div className="cardDescription">
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
-                        <span>Dúvidas</span>
+                        <span>Pergunte ao Astrólogo</span>
+                        <span>Suporte Online</span>
+                        <span>Consultoria Astral</span>
+                        <span>Interaja ao Vivo</span>
+                        <span>Análise de Futuro</span>
+                        {/* <span>Dúvidas</span> */}
                     </div>
                     <button>Consulte Agora</button>
                 </div>

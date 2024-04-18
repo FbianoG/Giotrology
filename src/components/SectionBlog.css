@@ -82,46 +82,24 @@
     }
 }
 
-
-.cardCount {
-    width: 200px;
-    height: 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    border-radius: 10px;
-    overflow: hidden;
+.btnViewMore {
+    width: 300px;
+    line-height: 60px;
+    font-size: 16px;
+    padding: 0 30px;
     margin: 0 auto;
-    
-}
-
-.cardCount span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    color: var(--corWhiteText);
-    font-family: "Smythe", system-ui;
-}
-
-.cardCount button {
-    background: transparent;
-    border: none;
-    color: #888;
-    font-size: 35px;
-    cursor: pointer;
-    transition: 400ms;
-}
-
-.cardCount button:hover {
-    color: var(--corWhiteText);
-    background: #fff1;
-}
-
-.sectionBlog label {
-    display: block;
-    margin: 0 auto 5px;
     width: fit-content;
-    color: #666;
+    display: block;
+    color: #fdfdfd;
+    text-decoration: none;
+    border: 1px solid #fdfdfd;
+}
+
+.btnViewMore:hover {
+    transition: 400ms;
+    background: #0003;
+    border-color: #555;
+    color: #5362ae;
 }
 
 
