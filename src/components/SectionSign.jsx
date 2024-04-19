@@ -6,7 +6,7 @@ export default function SectionSign() {
     const signs = [
         {
             name: "Áries",
-            src: "/public/img/0.png",
+            src: "/img/0.png",
             date: "mar 20 - abr 20",
             description: "O primeiro signo do zodíaco, simbolizando o início, a energia e a coragem. Os arianos são conhecidos por sua determinação e iniciativa, sempre prontos para enfrentar desafios de frente."
         },
@@ -77,8 +77,6 @@ export default function SectionSign() {
             description: "O décimo segundo signo, é regido pela sensibilidade e pela compaixão. Piscianos são intuitivos, empáticos e têm uma forte conexão com o mundo espiritual."
         },
     ]
-
-
 
 
     return (
