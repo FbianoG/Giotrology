@@ -25,6 +25,7 @@ export default function Home() {
                 <SectionBlog />
                 <SectionSign />
                 <SectionPrice />
+                <div className="stars"></div>
             </div>
             <Footer />
         </>
