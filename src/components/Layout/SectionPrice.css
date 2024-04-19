@@ -20,6 +20,8 @@
 .cardPrice:hover {
     box-shadow: 3px 3px 10px #5362ae63;
     transform: translateY(-5px);
+    backdrop-filter: blur(10px);
+
 }
 
 .cardPrice {

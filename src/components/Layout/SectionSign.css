@@ -40,6 +40,12 @@
   border: 1px solid #fff3;
   overflow: hidden;
   position: relative;
+  
+}
+
+.cardSign:hover {
+  backdrop-filter: blur(1px);
+  transition: 800ms;
 }
 
 .signMain {
@@ -85,6 +91,11 @@
   /* border: 1px solid red; */
   padding: 20px;
   opacity: 0;
+}
+
+.signData span {
+  color: #fdfdfd;
+  font-weight: 100;
 }
 
 .cardSign:hover .signMain {
