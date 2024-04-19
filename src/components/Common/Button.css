@@ -1,0 +1,31 @@
+.mainBtn {
+    width: 200px;
+    height: 60px;
+    font-size: 16px;
+    color: #fdfdfd;
+    background: #5362ae;
+    border: none;
+    cursor: pointer;
+}
+
+.mainBtn:hover {
+    transition: 400ms;
+    filter: brightness(1.3);
+}
+
+.notMainBtn {
+    width: 200px;
+    height: 60px;
+    font-size: 16px;
+    color: #fdfdfd;
+    background: transparent;
+    border: 1px solid #fdfdfd;
+    cursor: pointer;
+}
+
+.notMainBtn:hover {
+    transition: 400ms;
+    background: #0003;
+    border-color: #555;
+    color: #5362ae;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import "./SectionTitleBlog.css"
+import FormEmail from "../Common/FormEmail"
 
 
 export default function SectionTitleBlog() {
@@ -30,48 +31,43 @@ export default function SectionTitleBlog() {
 
     return (
         <article>
-            {article && article.map(element => (
-                <div key={element._id}>
+            {article &&
+                article.map(element => (
+                    <div key={element._id}>
+                        <section className="sectionTitleBlog">
+                            <img src={element.src} alt="" />
+                            <h1 className="titleBlogContent">{element.title}</h1>
+                        </section>
+                        <div className="sectionContentBlog">
+                            <legend>
+                                <span>em: {element.date.slice(0, 10).split("-").reverse().join("/")}</span>
+                                <br />
+                                <span>por: Giovanna Salles</span>
+                            </legend>
+                            {element.articles.map(e => {
+                                return (
+                                    <>
+                                        <h2>{e.subTitle}</h2>
+                                        {e.article.map(n => (
+                                            <>
+                                                <p>{n}</p>
+                                                <br />
+                                            </>
+                                        )
+                                        )}
+                                        <br />
+                                    </>
+                                )
+                            })}
+                        </div>
 
-                    <section className="sectionTitleBlog">
-                        <img src={element.src} alt="" />
-                        <h1 className="titleBlogContent">{element.title}</h1>
-                    </section>
-
-                    <div className="sectionContentBlog">
-
-                        <legend>
-                            <span>em: {element.date.slice(0, 10).split("-").reverse().join("/")}</span>
-                            <br />
-                            <span>por: Giovanna Salles</span>
-                        </legend>
-
-                        {element.articles.map(e => {
-                            return (
-                                <>
-                                    <h2>{e.subTitle}</h2>
-                                    {e.article.map(n => (
-                                        <>
-                                            <p>{n}</p>
-                                            <br />
-                                        </>
-
-                                    )
-                                    )}
-                                    <br />
-                                </>
-                            )
-                        })}
-
-
-
+                        <FormEmail />
+                        
                     </div>
 
-                </div>
 
 
-
-            ))
+                ))
             }
 
 

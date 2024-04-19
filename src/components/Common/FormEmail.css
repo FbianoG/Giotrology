@@ -1,0 +1,64 @@
+.formEmail {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    width: 700px;
+    margin: 0 auto 100px;
+}
+
+.formEmail h1 {
+    color: #fdfdfd;
+    margin: 0 0 20px;
+    font-weight: 400;
+    font-size: 30px;
+}
+
+.formEmail label {
+    color: var(--corDarkText);
+}
+.formEmail input {
+    height: 25px;
+    font-size: 17px;
+    padding: 3px 5px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff1;
+    outline: none;
+    color: #ccc;
+    margin: 0 0 20px;
+}
+
+.formEmail input:focus {
+    border-color: var(--corBtn);
+}
+
+.formEmail textarea {
+    height: 180px;
+    background: transparent;
+    outline: none;
+    border: 1px solid #fff1;
+    padding: 5px;
+    font-size: 17px;
+    color: #ccc;
+    resize: none;
+    margin: 0 0 10px;
+}
+
+.formEmail textarea:focus {
+    background: #0002;
+    border-color: var(--corBtn);
+}
+
+
+.formEmail button {
+    
+}
+
+
+/* MB <= 767 - TB <= 1023 - */
+@media screen and (max-width: 767px) {
+    .formEmail {
+        padding: 0 5%;
+        width: 100%;
+    }
+}

@@ -1,3 +1,4 @@
+import Button from "../Common/Button";
 import "./SectionApresentation.css";
 
 
@@ -10,8 +11,9 @@ export default function SectionApresentation() {
                 <h1>Desvende o seu destino</h1>
                 <p>Deixe-se guiar pela influência dos planetas, mergulhe na profundidade dos signos e descubra como os movimentos celestiais moldam a sua vida.</p>
                 <div className="contentButtons">
-                    <button>Peça uma leitura</button>
-                    <button id='btnAboutMore'>Saiba mais</button>
+                    <Button type={"submit"} text={'Peça uma leitura'} main={true} />
+                    <Button type={"submit"} text={'Saiba mais...'} main={false} />
+                    
                 </div>
 
             </div>
