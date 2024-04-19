@@ -38,6 +38,8 @@
   width: 350px;
   height: 200px;
   border: 1px solid #fff3;
+  overflow: hidden;
+  position: relative;
 }
 
 .signMain {
@@ -104,6 +106,9 @@
   100% {
     opacity: 0;
     display: none;
+    /* Usando position porque em alguns celulares o display none não está funcionando */
+    position: absolute;
+    top: -100%
   }
 }
 
@@ -115,6 +120,9 @@
   100% {
     opacity: 0;
     display: none;
+    /* Usando position porque em alguns celulares o display none não está funcionando */
+    position: absolute;
+    top: -100%
   }
 }
 

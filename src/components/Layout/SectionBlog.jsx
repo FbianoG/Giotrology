@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react"
 import "./SectionBlog.css"
-import urlBack  from '../assets/api.js'
+import urlBack from '../../assets/api.js'
+import Loader from "../Common/Loader.jsx"
 
 
 
@@ -43,7 +44,7 @@ export default function SectionBlog() {
                 <p>Prepare-se para uma viagem fascinante rumo ao autoconhecimento e à compreensão dos desígnios celestiais.</p>
             </div>
             <div className="listBlog">
-                {blogs &&
+                {blogs ?
                     blogs.map(element => (
                         <div key={element._id} className="blogCard">
                             <img src={element.src} alt="" />
@@ -52,10 +53,12 @@ export default function SectionBlog() {
                             <a href={"/blog?id=" + element._id}>Leia mais...</a>
                         </div>
                     ))
+                    :
+                    <Loader />
                 }
             </div>
             <a href='/' className="btnViewMore" >Todos os artigos</a>
-  
+
 
         </section>
     )

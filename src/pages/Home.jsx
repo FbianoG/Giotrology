@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
-import Header from '../components/Header'
-import SectionApresentation from '../components/SectionApresentation'
-import SectionBlog from '../components/SectionBlog'
-import SectionPrice from '../components/SectionPrice'
-import SectionSign from '../components/SectionSign'
-import Footer from '../components/Footer'
+import Header from '../components/Shared/Header'
+import SectionApresentation from '../components/Layout/SectionApresentation'
+import SectionBlog from '../components/Layout/SectionBlog'
+import SectionPrice from '../components/Layout/SectionPrice'
+import SectionSign from '../components/Layout/SectionSign'
+import Footer from '../components/Shared/Footer'
 
 
 

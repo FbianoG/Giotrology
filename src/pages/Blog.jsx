@@ -1,6 +1,6 @@
-import Header from "../components/Header";
-import SectionTitleBlog from "../components/SectionTitleBlog";
-import Footer from "../components/Footer";
+import Header from "../components/Shared/Header";
+import SectionTitleBlog from "../components/Layout/SectionTitleBlog";
+import Footer from "../components/Shared/Footer";
 
 
 export default function Blog() {
