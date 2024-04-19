@@ -110,8 +110,61 @@
 
 
 
+.articlesList {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #fff1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 0;
+}
 
 
+.articleCard {
+
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #5362ae;
+}
+
+.articleCardData {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.articleCardData span:nth-child(2) {
+    color: #777;
+}
+
+.articleCardData span {
+    color: #ccc;
+}
+
+.articleCardButtons {
+    width: fit-content;
+    display: flex;
+    gap: 10px;
+}
+
+.articleCardButtons button {
+    padding: 10px;
+    background: #5362ae;
+    border: none;
+    color: #fdfdfd;
+    cursor: pointer;
+}
+
+.articleCardButtons button:hover {
+    transition: 400ms;
+    filter: brightness(1.2);
+}
+
+.articleCardButtons .btnArticleDelete {
+    background: #d85252;
+}
 
 
 

@@ -12,6 +12,7 @@ export default function Painel() {
     const createBtn = useRef()
 
     const [editArticle, setEditArticle] = useState(true)
+    const [Articles, setArticles] = useState(false)
 
     function createParagraph() {
         const count = createList.current.querySelectorAll('input').length
@@ -81,6 +82,48 @@ export default function Painel() {
     }
 
 
+    async function getArticles() {
+        const response = await fetch(`${urlBack}/getArticles`, {
+            method: "POST",
+            body: JSON.stringify(),
+            headers: { "Content-Type": "application/json" }
+        })
+        const data = await response.json()
+        if (response.ok) {
+            setArticles(data)
+            // console.log(data);
+        }
+    }
+
+    useEffect(() => {
+        getArticles()
+    }, [])
+
+
+
+    async function deleteArticle(e) {
+        const _id = e.target.name
+
+        const response = await fetch(`http://localhost:3000/deleteArticle`, {
+            method: "POST",
+            body: JSON.stringify({ _id }),
+            headers: { "Content-Type": "application/json" }
+        })
+        const data = await response.json()
+        if (response.ok) {
+            getArticles()
+            console.log(data);
+        }
+
+
+
+    }
+
+
+
+
+
+
     useEffect(() => {
         if (editArticle) {
             createBtn.current.style.opacity = "0.2"
@@ -102,7 +145,24 @@ export default function Painel() {
                 <button ref={createBtn} onClick={() => setEditArticle(false)}>Criar Artigo</button>
             </ div>
             {editArticle ?
-                ""
+                <>
+                    <div className="articlesList">
+                        {Articles &&
+                            Articles.map(element => (
+                                <div className="articleCard" key={element._id}>
+                                    <div className="articleCardData">
+                                        <span>{element.title}</span>
+                                        <span>{element.date.slice(0, 10).split('-').reverse().join("/")}</span>
+                                    </div>
+                                    <div className="articleCardButtons">
+                                        <button name={element._id}>Editar</button>
+                                        <button className='btnArticleDelete' name={element._id} onClick={deleteArticle}>Excluir</button>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </>
                 :
                 <>
                     <div className='formCreateArticle'>
