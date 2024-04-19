@@ -25,7 +25,12 @@ export default function Painel() {
         const count = createList.current.querySelectorAll('input').length
         const newSub = document.createElement('input')
         newSub.placeholder = "Subtítulo 0" + (count + 1)
+        newSub.className = "sub" + (count + 1)
+        const newDelBtn = document.createElement("button")
+        newDelBtn.textContent = "Excluir"
         createList.current.appendChild(newSub)
+        createList.current.appendChild(newDelBtn)
+        newDelBtn.addEventListener("click", () => del(newDelBtn, count + 1))
     }
 
     async function save() {
@@ -67,7 +72,13 @@ export default function Painel() {
         }
     }
 
-
+    function del(btn, e) {
+        const allDelete = document.querySelectorAll(`.article${e}`)
+        const allDelete2 = document.querySelectorAll(`.sub${e}`)
+        allDelete.forEach(element => element.remove())
+        allDelete2.forEach(element => element.remove())
+        btn.remove()
+    }
 
 
     useEffect(() => {

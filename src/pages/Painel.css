@@ -26,8 +26,12 @@
     font-weight: 300;
     color: var(--corWhiteText);
     background: #fff1;
-    border: 1px solid #5362ae;
+    border: 1px solid #fff1;
     outline: none;
+}
+
+.formCreateArticle input:focus {
+    border: 1px solid #5362ae;
 }
 
 
@@ -44,11 +48,16 @@
     padding: 3px 5px;
     font-size: 20px;
     background: #fff1;
-    border: 1px solid #5362ae;
+    border: 1px solid #fff1;
     outline: none;
     color: var(--corWhiteText);
     font-weight: 300;
 }
+
+.formCreateArticle textarea:focus {
+    border: 1px solid #5362ae;
+}
+
 
 .formCreateArticleButtons {
     display: flex;
