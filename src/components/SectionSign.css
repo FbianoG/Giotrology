@@ -2,31 +2,29 @@
   margin: 0 0 100px;
 }
 
-.contentSign {
+.contentSign {}
 
 
-  & span {
-    color: #524196;
-    font-size: 20px;
-  }
+.contentSign span {
+  color: #524196;
+  font-size: 20px;
+}
 
-  & h1 {
-    font-family: "Smythe", system-ui;
-    color: #fdfdfd;
-    font-size: 60px;
-    font-weight: 300;
-    width: 50%;
-    margin: 20px 0 30px 0;
-  }
+.contentSign h1 {
+  font-family: "Smythe", system-ui;
+  color: #fdfdfd;
+  font-size: 60px;
+  font-weight: 300;
+  width: 50%;
+  margin: 20px 0 30px 0;
+}
 
-  & p {
-    font-size: 20px;
-    color: #aaa;
-    width: 50%;
-    font-weight: 300;
-    margin: 0 0 50px;
-  }
-
+.contentSign p {
+  font-size: 20px;
+  color: #aaa;
+  width: 50%;
+  font-weight: 300;
+  margin: 0 0 50px;
 }
 
 .listSign {
@@ -40,7 +38,6 @@
   width: 350px;
   height: 200px;
   border: 1px solid #fff3;
-
 }
 
 .signMain {
@@ -79,7 +76,6 @@
   border-color: #5362ae;
 }
 
-
 .signData {
   display: none;
   width: 100%;
@@ -88,7 +84,6 @@
   padding: 20px;
   opacity: 0;
 }
-
 
 .cardSign:hover .signMain {
   animation: hidde 300ms both ease;
@@ -100,9 +95,6 @@
   animation: show 300ms both 300ms ease;
   -webkit-animation: show 300ms both 300ms ease;
 }
-
-
-
 
 @keyframes hidde {
   0% {
