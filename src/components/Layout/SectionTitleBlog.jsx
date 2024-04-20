@@ -9,7 +9,6 @@ export default function SectionTitleBlog() {
     const urlBack = "https://giotrology-back.vercel.app"
 
     async function getArticle() {
-
         const urlQuery = new URLSearchParams(window.location.search).get("id")
         const response = await fetch(`${urlBack}/getArticle?id=${urlQuery}`, {
             method: "POST",
@@ -18,16 +17,11 @@ export default function SectionTitleBlog() {
         })
         const data = await response.json()
         setArticle([data])
-
     }
-
-
 
     useEffect(() => {
         getArticle()
     }, [])
-
-
 
     return (
         <article>
@@ -60,9 +54,7 @@ export default function SectionTitleBlog() {
                                 )
                             })}
                         </div>
-
                         <FormEmail />
-                        
                     </div>
 
 

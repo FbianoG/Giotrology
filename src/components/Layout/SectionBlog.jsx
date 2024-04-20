@@ -1,16 +1,13 @@
 import { useState, useEffect, useRef } from "react"
 import "./SectionBlog.css"
-import urlBack from '../../assets/api.js'
+import urlBack from '../../utils/api.js'
 import Loader from "../Common/Loader.jsx"
 
 
 
 export default function SectionBlog() {
 
-
     const [blogs, setBlogs] = useState(false)
-
-
 
     async function getArticles() {
         const response = await fetch(`${urlBack}/getArticles`, {
@@ -24,16 +21,9 @@ export default function SectionBlog() {
         }
     }
 
-
-
-
     useEffect(() => {
         getArticles()
     }, [])
-
-
-
-
 
     return (
         <section className="sectionBlog" id="sectionBlog">

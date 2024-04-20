@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import "./Painel.css";
-import urlBack from '../assets/api'
+import urlBack from '../utils/api'
 
 export default function Painel() {
 
@@ -81,7 +81,6 @@ export default function Painel() {
         btn.remove()
     }
 
-
     async function getArticles() {
         const response = await fetch(`${urlBack}/getArticles`, {
             method: "POST",
@@ -104,7 +103,7 @@ export default function Painel() {
     async function deleteArticle(e) {
         const _id = e.target.name
 
-        const response = await fetch(`http://localhost:3000/deleteArticle`, {
+        const response = await fetch(`${urlBack}/deleteArticle`, {
             method: "POST",
             body: JSON.stringify({ _id }),
             headers: { "Content-Type": "application/json" }
