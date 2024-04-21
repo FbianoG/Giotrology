@@ -1,6 +1,7 @@
 import Header from "../components/Shared/Header";
 import SectionTitleBlog from "../components/Layout/SectionTitleBlog";
 import Footer from "../components/Shared/Footer";
+import Stars from "../components/Common/Stars";
 
 
 export default function Blog() {
@@ -10,6 +11,7 @@ export default function Blog() {
             <Header />
             <SectionTitleBlog />
             {/* <FormEmail /> */}
+            <Stars/>
             <Footer />
 
         </>

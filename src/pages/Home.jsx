@@ -6,6 +6,7 @@ import SectionBlog from '../components/Layout/SectionBlog'
 import SectionPrice from '../components/Layout/SectionPrice'
 import SectionSign from '../components/Layout/SectionSign'
 import Footer from '../components/Shared/Footer'
+import Stars from '../components/Common/Stars'
 
 
 
@@ -25,7 +26,7 @@ export default function Home() {
                 <SectionBlog />
                 <SectionSign />
                 <SectionPrice />
-                <div className="stars"></div>
+                <Stars />
             </div>
             <Footer />
         </>

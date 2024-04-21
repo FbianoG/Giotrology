@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import './Payment.css';
 import Button from '../components/Common/Button'
+import Stars from '../components/Common/Stars';
 
 export default function Payment() {
 
@@ -49,48 +50,51 @@ export default function Payment() {
     }
 
     return (
-        <form className="paymentContent">
-            <div className="paymentCard">
-                <img src="" alt="Imagem bandeira do cartão" ref={bandeira} />
-                <label htmlFor=''>Nº Cartão</label>
-                <span ref={cardNumber}></span>
-                <div className="paymentCardData">
-                    <div className="paymentCardDataName">
-                        <label htmlFor=''>Nome</label>
-                        <span ref={cardName}></span>
+        <>
+            <form className="paymentContent">
+                <div className="paymentCard">
+                    <img src="" alt="Imagem bandeira do cartão" ref={bandeira} />
+                    <label htmlFor=''>Nº Cartão</label>
+                    <span ref={cardNumber}></span>
+                    <div className="paymentCardData">
+                        <div className="paymentCardDataName">
+                            <label htmlFor=''>Nome</label>
+                            <span ref={cardName}></span>
+                        </div>
+                        <div className="paymentCardDataName">
+                            <label htmlFor=''>CVV</label>
+                            <span ref={cardCvv}></span>
+                        </div>
                     </div>
-                    <div className="paymentCardDataName">
-                        <label htmlFor=''>CVV</label>
-                        <span ref={cardCvv}></span>
+                    <label htmlFor=''>Validade:</label>
+                    <span ref={cardValidade}></span>
+                </div>
+                <div className="paymentData"></div>
+                <div className="paymentForm">
+                    <div className="paymentFormBandeira">
+                        <input type="radio" name="bandeira" id="visa" value="visa" onChange={(e) => changeBandeira(e)} />
+                        <label htmlFor='visa'>Visa</label>
+                        <input type="radio" name="bandeira" id="masterCard" value="master" onChange={(e) => changeBandeira(e)} />
+                        <label htmlFor='masterCard'>MasterCard</label>
+                    </div>
+                    <div className="paymentFormGroup">
+                        <label htmlFor='card'>Nº Cartão:</label>
+                        <input type='text' name='card' onChange={changeCard} ref={card} maxLength='16' />
+                        <label htmlFor='name'>Nome no Cartão</label>
+                        <input type='text' name='name' onChange={changeCard} ref={name} />
+                        <label htmlFor='cvv'>CVV:</label>
+                        <input type='text' name='cvv' onChange={changeCard} ref={cvv} maxLength='3' />
+                    </div>
+                    <div className="paymentFormGroup">
+                        <label htmlFor='validade'>Validade:</label>
+                        <input type='text' name='validade' onChange={changeCard} ref={validade} maxLength='5' />
+                        <label htmlFor='cpf' >CPF:</label>
+                        <input type='text' name='cpf' maxLength='11' />
+                        <Button type="submit" main="true" text="Comprar" />
                     </div>
                 </div>
-                <label htmlFor=''>Validade:</label>
-                <span ref={cardValidade}></span>
-            </div>
-            <div className="paymentData"></div>
-            <div className="paymentForm">
-                <div className="paymentFormBandeira">
-                    <input type="radio" name="bandeira" id="visa" value="visa" onChange={(e) => changeBandeira(e)} />
-                    <label htmlFor='visa'>Visa</label>
-                    <input type="radio" name="bandeira" id="masterCard" value="master" onChange={(e) => changeBandeira(e)} />
-                    <label htmlFor='masterCard'>MasterCard</label>
-                </div>
-                <div className="paymentFormGroup">
-                    <label htmlFor='card'>Nº Cartão:</label>
-                    <input type='text' name='card' onChange={changeCard} ref={card} maxLength='16' />
-                    <label htmlFor='name'>Nome no Cartão</label>
-                    <input type='text' name='name' onChange={changeCard} ref={name} />
-                    <label htmlFor='cvv'>CVV:</label>
-                    <input type='text' name='cvv' onChange={changeCard} ref={cvv} maxLength='3' />
-                </div>
-                <div className="paymentFormGroup">
-                    <label htmlFor='validade'>Validade:</label>
-                    <input type='text' name='validade' onChange={changeCard} ref={validade} maxLength='5' />
-                    <label htmlFor='cpf' >CPF:</label>
-                    <input type='text' name='cpf' maxLength='11'/>
-                    <Button type="submit" main="true" text="Comprar" />
-                </div>
-            </div>
-        </form>
+            </form>
+            <Stars/>
+        </>
     )
 }

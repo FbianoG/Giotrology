@@ -124,4 +124,8 @@
         display: block;
         padding: 0 5%;
     }
+
+    .paymentForm input {
+        height: 30px;
+    }
 }
