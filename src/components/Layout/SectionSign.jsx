@@ -1,5 +1,6 @@
+import { useState } from "react"
 import "./SectionSign.css"
-
+import Button from '../Common/Button'
 
 export default function SectionSign() {
 
@@ -77,7 +78,18 @@ export default function SectionSign() {
             description: "O décimo segundo signo, é regido pela sensibilidade e pela compaixão. Piscianos são intuitivos, empáticos e têm uma forte conexão com o mundo espiritual."
         },
     ]
+    const [countSign, setCountSign] = useState(6)
+    const [btnText, setBtnText] = useState("Veja mais...")
 
+function changeCount() {
+    if (countSign === 6) {
+        setBtnText("Ver menos")
+        setCountSign(12)
+        return
+    }
+    setBtnText("Ver mais...")
+    setCountSign(6)
+}
 
     return (
         <section className='sectionSign' id="sectionSign">
@@ -90,22 +102,27 @@ export default function SectionSign() {
 
             <div className="listSign">
 
-                {signs.map(element => (
-                    <div key={element.name} className="cardSign">
-                        <div className="signMain">
-                            <img src={element.src} alt="" />
-                            <h3>{element.name}</h3>
-                            <span>{element.date}</span>
+                {signs.map((element, index) => {
+                    if (index >= countSign) {
+                        return
+                    }
+                    return (
+                        <div key={element.name} className="cardSign" >
+                            <div className="signMain">
+                                <img src={element.src} alt="" />
+                                <h3>{element.name}</h3>
+                                <span>{element.date}</span>
+                            </div>
+                            <div className="signData">
+                                <h3>{element.name}</h3>
+                                <span>{element.description}</span>
+                            </div>
                         </div>
-                        <div className="signData">
-                            <h3>{element.name}</h3>
-                            <span>{element.description}</span>
-                        </div>
-                    </div>
-                ))}
-
+                    )
+                })}
             </div>
+                <Button type="button" text={btnText}  main={false} functions={changeCount} />
 
-        </section>
+        </section >
     )
 }

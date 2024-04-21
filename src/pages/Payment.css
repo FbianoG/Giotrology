@@ -1,7 +1,7 @@
 .paymentContent {
     width: 500px;
     background: #0002;
-    margin: 100px auto 0;
+    margin: 100px auto 100px;
     padding: 20px;
 }
 
@@ -19,6 +19,17 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
+    overflow: hidden;
+}
+
+#paymentCardBg {
+    width: 150px;
+    height: 150px;
+    max-height: none;
+    position: absolute;
+    bottom: -50%;
+    right: -10%;
+    opacity: 0.2;
 }
 
 .paymentCard img {

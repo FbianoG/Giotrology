@@ -109,6 +109,13 @@
   -webkit-animation: show 300ms both 300ms ease;
 }
 
+.sectionSign button {
+  display: block;
+  margin: 70px auto 0 ;
+}
+
+
+
 @keyframes hidde {
   0% {
     /* opacity: 1; */

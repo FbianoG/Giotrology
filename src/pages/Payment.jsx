@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import './Payment.css';
 import Button from '../components/Common/Button'
 import Stars from '../components/Common/Stars';
+import Footer from '../components/Shared/Footer';
 
 export default function Payment() {
 
@@ -53,6 +54,7 @@ export default function Payment() {
         <>
             <form className="paymentContent">
                 <div className="paymentCard">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/029/145/582/small_2x/astrology-wheel-with-zodiac-signs-vintage-frame-divine-magic-hand-drawn-antique-illustration-png.png" alt="fundo" id='paymentCardBg'/>
                     <img src="" alt="Imagem bandeira do cartão" ref={bandeira} />
                     <label htmlFor=''>Nº Cartão</label>
                     <span ref={cardNumber}></span>
@@ -94,7 +96,9 @@ export default function Payment() {
                     </div>
                 </div>
             </form>
-            <Stars/>
+            <Stars />
+
+            <Footer />
         </>
     )
 }
