@@ -160,7 +160,7 @@ export default function Painel() {
 
             {updateArticlee &&
 
-                <FormArticleEdit article={updateArticlee} function={{ del, createParagraph, createSubTitle }} ref={createList = useRef()}/>
+                <FormArticleEdit article={updateArticlee} function={{ del, createParagraph, createSubTitle }} ref={createList}/>
 
             }
 
