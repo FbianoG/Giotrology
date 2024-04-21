@@ -122,5 +122,6 @@
     }
     .paymentForm {
         display: block;
+        padding: 0 5%;
     }
 }
