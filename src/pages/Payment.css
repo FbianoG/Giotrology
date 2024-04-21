@@ -1,0 +1,125 @@
+.paymentContent {
+    width: 500px;
+    background: #0002;
+    margin: 100px auto 0;
+    padding: 20px;
+}
+
+
+
+.paymentCard {
+    background: #12101c;
+    width: 320px;
+    height: 190px;
+    margin: 0 auto;
+    position: relative;
+    top: -40px;
+    border-radius: 12px;
+    box-shadow: 3px 3px 5px #0003;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.paymentCard img {
+    width: 70px;
+    height: 40px;
+    max-height: 30px;
+    object-fit: contain;
+    /* display: block; */
+    margin: 0 0 0 auto;
+}
+
+.paymentCard label {
+    color: #555;
+    font-size: 14px;
+}
+
+.paymentCard span {
+    color: #999;
+    font-size: 17px;
+    margin: 0 0 10px;
+    height: 16px;
+    overflow: hidden;
+}
+
+.paymentCardData {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 90% 1fr;
+    justify-content: flex-start;
+    
+}
+
+.paymentCardDataName {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.paymentForm {
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    gap: 0 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.paymentForm label{
+    color: #666 ;
+    font-size: 16px;
+}
+
+.paymentForm input{ 
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff1;
+    height: 25px;
+    outline: none;
+    color: #ccc;
+    font-size: 18px;
+}
+
+.paymentFormGroup input {
+    margin: 0 0 20px;
+}
+
+
+.paymentFormBandeira {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    grid-column: span 2;
+    margin: 0 0 20px;
+}
+
+.paymentFormBandeira label {
+    margin: 0 25px 0 0 ;
+}
+
+.paymentFormGroup .mainBtn {
+    margin: 0 auto;
+    height: 40px;
+    width: 150px;
+    display: block;
+}
+
+.paymentFormGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+/* MB <= 767 - TB <= 1023 - */
+@media screen and (max-width: 767px) {
+    .paymentContent {
+        padding: 0 20%;
+        background: none;
+    }
+    .paymentForm {
+        display: block;
+    }
+}

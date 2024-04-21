@@ -22,7 +22,7 @@ export default function SectionPrice() {
                         <span>Análise de Futuro</span>
                         {/* <span>Dúvidas</span> */}
                     </div>
-                    <button>Consulte Agora</button>
+                    <a href="/payment">Consulte Agora</a>
                 </div>
                 <div className="cardPrice">
                     <div className="widgetDiscont">
@@ -40,7 +40,7 @@ export default function SectionPrice() {
                         <span>Análise de Futuro</span>
                         {/* <span>Dúvidas</span> */}
                     </div>
-                    <button>Consulte Agora</button>
+                    <a href="/payment">Consulte Agora</a>
                 </div>
                 <div className="cardPrice">
                     <div className="widgetDiscont">
@@ -58,7 +58,7 @@ export default function SectionPrice() {
                         <span>Análise de Futuro</span>
                         {/* <span>Dúvidas</span> */}
                     </div>
-                    <button>Consulte Agora</button>
+                    <a href="/payment">Consulte Agora</a>
                 </div>
             </div>
 

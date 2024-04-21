@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import "./Painel.css";
 import urlBack from '../utils/api'
+import FormArticleEdit from '../components/Layout/formArticleEdit';
 
 export default function Painel() {
 
@@ -74,6 +75,7 @@ export default function Painel() {
     }
 
     function del(btn, e) {
+        console.log(btn);
         const allDelete = document.querySelectorAll(`.article${e}`)
         const allDelete2 = document.querySelectorAll(`.sub${e}`)
         allDelete.forEach(element => element.remove())
@@ -90,7 +92,7 @@ export default function Painel() {
         const data = await response.json()
         if (response.ok) {
             setArticles(data)
-            // console.log(data);
+            console.log(data);
         }
     }
 
@@ -118,7 +120,15 @@ export default function Painel() {
 
     }
 
+    const [updateArticlee, setUpdateArticle] = useState(false)
 
+    async function updateArticle(e) {
+        const _id = e.target.name
+        const article = Articles.find(element => element._id === _id)
+        console.log(article);
+        setUpdateArticle(article);
+
+    }
 
 
 
@@ -139,10 +149,27 @@ export default function Painel() {
 
     return (
         <>
+
+
+
+
             <div className="headerPainel">
                 <button ref={editBtn} onClick={() => setEditArticle(true)}>Editar Artigos</button>
                 <button ref={createBtn} onClick={() => setEditArticle(false)}>Criar Artigo</button>
             </ div>
+
+            {updateArticlee &&
+
+                <FormArticleEdit article={updateArticlee} function={{ del, createParagraph, createSubTitle }} ref={createList = useRef()}/>
+
+            }
+
+
+
+
+
+
+
             {editArticle ?
                 <>
                     <div className="articlesList">
@@ -154,7 +181,7 @@ export default function Painel() {
                                         <span>{element.date.slice(0, 10).split('-').reverse().join("/")}</span>
                                     </div>
                                     <div className="articleCardButtons">
-                                        <button name={element._id}>Editar</button>
+                                        <button name={element._id} onClick={updateArticle}>Editar</button>
                                         <button className='btnArticleDelete' name={element._id} onClick={deleteArticle}>Excluir</button>
                                     </div>
                                 </div>

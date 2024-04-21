@@ -82,7 +82,7 @@
         margin: 0 0 20px;
     }
 
-    & button {
+    & a {
         width: 100%;
         font-size: 16px;
         color: #fdfdfd;
@@ -90,10 +90,14 @@
         border: none;
         cursor: pointer;
         padding: 10px;
-
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    & button:hover {
+
+    & a:hover {
         transition: 400ms;
         filter: brightness(1.3);
     }
