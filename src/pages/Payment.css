@@ -116,8 +116,9 @@
 /* MB <= 767 - TB <= 1023 - */
 @media screen and (max-width: 767px) {
     .paymentContent {
-        padding: 0 20%;
+        width: 100%;
         background: none;
+        padding: 0 0 50px;
     }
     .paymentForm {
         display: block;
