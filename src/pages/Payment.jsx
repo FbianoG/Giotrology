@@ -70,10 +70,10 @@ export default function Payment() {
             <div className="paymentData"></div>
             <div className="paymentForm">
                 <div className="paymentFormBandeira">
-                    <input type="radio" name="bandeira" id="" value="visa" onChange={(e) => changeBandeira(e)} />
-                    <label htmlFor=''>Visa</label>
-                    <input type="radio" name="bandeira" id="" value="master" onChange={(e) => changeBandeira(e)} />
-                    <label htmlFor=''>MasterCard</label>
+                    <input type="radio" name="bandeira" id="visa" value="visa" onChange={(e) => changeBandeira(e)} />
+                    <label htmlFor='visa'>Visa</label>
+                    <input type="radio" name="bandeira" id="masterCard" value="master" onChange={(e) => changeBandeira(e)} />
+                    <label htmlFor='masterCard'>MasterCard</label>
                 </div>
                 <div className="paymentFormGroup">
                     <label htmlFor='card'>Nº Cartão:</label>
