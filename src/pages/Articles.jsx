@@ -21,7 +21,7 @@ export default function Articles() {
             setArticles(data)
         }
     }
-
+  
     useEffect(() => {
         getArticles()
     }, [])
