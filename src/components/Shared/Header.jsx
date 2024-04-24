@@ -12,7 +12,7 @@ export default function Header() {
             </div>
             <nav>
                 <a href="/">Início</a>
-                <a href="#sectionBlog">Blog</a>
+                <a href="/articles">Artigos</a>
                 <a href="#sectionSign">Signos</a>
                 <a href="#sectionPrice">Mapa Astral</a>
             </nav>

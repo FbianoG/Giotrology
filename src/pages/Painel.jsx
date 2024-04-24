@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import "./Painel.css";
 import urlBack from '../utils/api'
 import FormArticleEdit from '../components/Layout/formArticleEdit';
+import Button from '../components/Common/Button';
 
 export default function Painel() {
 
@@ -14,6 +15,7 @@ export default function Painel() {
 
     const [editArticle, setEditArticle] = useState(true)
     const [Articles, setArticles] = useState(false)
+
 
     function createParagraph() {
         const count = createList.current.querySelectorAll('input').length
@@ -32,10 +34,18 @@ export default function Painel() {
         newDelBtn.textContent = "Excluir"
         createList.current.appendChild(newSub)
         createList.current.appendChild(newDelBtn)
-        newDelBtn.addEventListener("click", () => del(newDelBtn, count + 1))
+        newDelBtn.addEventListener("click", () => deleteParagraph(newDelBtn, count + 1))
     }
 
-    async function save() {
+    function deleteParagraph(btn, e) {
+        const allDelete = document.querySelectorAll(`.article${e}`)
+        const allDelete2 = document.querySelectorAll(`.sub${e}`)
+        allDelete.forEach(element => element.remove())
+        allDelete2.forEach(element => element.remove())
+        btn.remove()
+    }
+
+    async function createArticle() {
         const totalSub = createList.current.querySelectorAll('input').length
         const art = {
             title: title.current.value,
@@ -74,14 +84,9 @@ export default function Painel() {
         }
     }
 
-    function del(btn, e) {
-        console.log(btn);
-        const allDelete = document.querySelectorAll(`.article${e}`)
-        const allDelete2 = document.querySelectorAll(`.sub${e}`)
-        allDelete.forEach(element => element.remove())
-        allDelete2.forEach(element => element.remove())
-        btn.remove()
-    }
+
+
+
 
     async function getArticles() {
         const response = await fetch(`${urlBack}/getArticles`, {
@@ -96,9 +101,18 @@ export default function Painel() {
         }
     }
 
-    useEffect(() => {
-        getArticles()
-    }, [])
+    async function updateArticleee(params) {
+        const response = await fetch(`${urlBack}/updateArticle`, {
+            method: "POST",
+            body: JSON.stringify({}),
+            headers: { "Content-Type": "application/json" }
+        })
+        const data = await response.json()
+        if (response.ok) {
+            setArticles(data)
+            console.log(data);
+        }
+    }
 
 
 
@@ -130,10 +144,8 @@ export default function Painel() {
 
     }
 
-
-
-
     useEffect(() => {
+        setUpdateArticle(false)
         if (editArticle) {
             createBtn.current.style.opacity = "0.2"
             createBtn.current.style.height = "35px"
@@ -147,6 +159,10 @@ export default function Painel() {
         }
     }, [editArticle])
 
+    useEffect(() => {
+        getArticles()
+    }, [])
+
     return (
         <>
 
@@ -159,16 +175,8 @@ export default function Painel() {
             </ div>
 
             {updateArticlee &&
-
-                <FormArticleEdit article={updateArticlee} function={{ del, createParagraph, createSubTitle }} ref={createList}/>
-
+                <FormArticleEdit article={updateArticlee} function={{ deleteParagraph, createParagraph, createSubTitle }} ref={createList} />
             }
-
-
-
-
-
-
 
             {editArticle ?
                 <>
@@ -202,9 +210,9 @@ export default function Painel() {
                         </div>
 
                         <div className="formCreateArticleButtons">
-                            <button onClick={createParagraph}>Add Parágrafo</button>
-                            <button onClick={createSubTitle}>Add Subtítulo</button>
-                            <button onClick={save}>Criar</button>
+                            <Button main={true} text="Add Parágrafo" functions={createParagraph} />
+                            <Button main={true} text="Add Subtítulo" functions={createSubTitle} />
+                            <Button main={false} text="Criar" functions={createArticle} />
                         </div>
                     </div>
 

@@ -1,5 +1,5 @@
 import './FormArticleEdit.css'
-
+import Button from '../Common/Button'
 
 
 export default function FormArticleEdit(props) {
@@ -16,7 +16,7 @@ export default function FormArticleEdit(props) {
                         {props.article.articles.map((element, index) => (
                             <div className='formParagraphs' key={index} ref={props.ref}>
                                 <input type='text' name='' defaultValue={element.subTitle} className={`sub${index + 1}`} />
-                                <button onClick={(btn) => props.function.del(btn.target, index + 1)}>Deletar</button>
+                                <button onClick={(btn) => props.function.deleteParagraph(btn.target, index + 1)}>Deletar</button>
                                 {element.article.map(e => (
                                     <>
                                         <textarea id="" defaultValue={e} className={`article${index + 1}`}></textarea >
@@ -25,9 +25,10 @@ export default function FormArticleEdit(props) {
                             </div>
                         ))}
                         <div className="formCreateArticleButtons">
-                            <button onClick={props.function.createParagraph}>Add Parágrafo</button>
-                            <button onClick={props.function.createSubTitle}>Add Subtítulo</button>
-                            {/* <button onClick={}>Criar</button> */}
+                            <Button main={true} text="Add Parágrafo" functions={props.function.createParagraph}/>
+                            <Button main={true} text="Add Parágrafo" functions={props.function.createSubTitle}/>
+                            <Button main={false} text="Salvar" functions={props.function.createParagraph}/>
+
                         </div>
                     </>
                 }

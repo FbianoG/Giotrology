@@ -4,6 +4,12 @@ import "./SectionApresentation.css";
 
 export default function SectionApresentation() {
 
+
+
+    function scrollPrice() {
+        location.href = "/#sectionPrice"
+    }
+
     return (
         <section className="sectionApresentation">
             <div className="contentSection">
@@ -11,7 +17,7 @@ export default function SectionApresentation() {
                 <h1>Desvende o seu destino</h1>
                 <p>Deixe-se guiar pela influência dos planetas, mergulhe na profundidade dos signos e descubra como os movimentos celestiais moldam a sua vida.</p>
                 <div className="contentButtons">
-                    <Button type={"submit"} text={'Peça uma leitura'} main={true} />
+                    <Button type={"submit"} text={'Peça uma leitura'} main={true} functions={scrollPrice}/>
                     <Button type={"submit"} text={'Saiba mais...'} main={false} />
                     
                 </div>

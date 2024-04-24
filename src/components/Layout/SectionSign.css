@@ -111,8 +111,14 @@
 
 .sectionSign button {
   display: block;
+  flex-wrap: wrap;
   margin: 70px auto 0 ;
 }
+.sectionSign button::before {
+content: '';
+width: 100%;
+}
+
 
 
 

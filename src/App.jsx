@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import Blog from './pages/Blog'
+import Article from './pages/Article'
 import Painel from './pages/Painel'
 import Payment from './pages/Payment'
+import Articles from './pages/Articles'
 
 
 function App() {
@@ -13,9 +14,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/article" element={<Article />} />
         <Route path="/painel" element={<Painel />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/articles" element={<Articles />} />
       </Routes>
     </Router>
 

@@ -1,7 +1,7 @@
 
 
 .content {
-  padding: 0 5%;
+  padding: 50px 5% 0;
 }
 
 section {
@@ -27,4 +27,12 @@ section {
   --corBtn: #5362ae;
   --corDarkText: #524196;
   --corWhiteText: #fdfdfd
+}
+
+
+/* MB <= 767 - TB <= 1023 - */
+@media screen and (max-width: 767px) {
+  .content {
+    padding: 100px 5% 0;
+  }
 }

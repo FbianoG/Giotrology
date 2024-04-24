@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react"
 import "./SectionBlog.css"
 import urlBack from '../../utils/api.js'
 import Loader from "../Common/Loader.jsx"
+import CardArticle from "./CardArticle.jsx"
 
 
 
@@ -35,19 +36,18 @@ export default function SectionBlog() {
             </div>
             <div className="listBlog">
                 {blogs ?
-                    blogs.map(element => (
-                        <div key={element._id} className="blogCard">
-                            <img src={element.src} alt="" />
-                            <h2>{element.title}</h2>
-                            <span>{element.articles[0].article[0]}</span>
-                            <a href={"/blog?id=" + element._id}>Leia mais...</a>
-                        </div>
-                    ))
+                    blogs.map((element, index) => {
+                        if (index >= 3) {
+                            return
+                        }
+                        return <CardArticle key={index} data={element} />
+                    }
+                    )
                     :
                     <Loader />
                 }
             </div>
-            <a href='/' className="btnViewMore" >Todos os artigos</a>
+            <a href='/articles' className="btnViewMore" >Todos os artigos</a>
 
 
         </section>
