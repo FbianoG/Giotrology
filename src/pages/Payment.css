@@ -240,6 +240,7 @@ color: #666;
 
     .checkout {
         /* order: 2; */
+        width: 100%;
         background: none;
         gap: 50px;
     }
