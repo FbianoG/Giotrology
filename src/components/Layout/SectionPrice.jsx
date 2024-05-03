@@ -28,7 +28,7 @@ export default function SectionPrice() {
                     <div className="widgetDiscont">
                         10% OFF
                     </div>
-                    <h3>Mapa Astral</h3>
+                    <h3>Sinastria Amorosa</h3>
                     <h2 className="widgetPrice">R$65 <span>/ por consulta</span></h2>
 
                     <div className="cardDivisor"></div>
