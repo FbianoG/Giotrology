@@ -41,13 +41,11 @@ export default function Payment() {
     emailjs.init("ceAIIFLHMCK_ganFy") // public key - iniciar fora da function
     async function sendEmail(e) { // Envia o formulário de contato para meu Email
         e.preventDefault()
-
         const formContact = { nome1, nome2, bairro1, bairro2, cidade1, cidade2, estado1, estado2, data1, data2, hora1, hora2, email }
-
-        console.log(formContact);
-
-
-
+        if (Object.values(formContact).some(element => element.trim() === '')) {
+            setMapData(true)
+            return
+        }
         try {
             const response = await emailjs.send('service_oc8e0g4', 'template_082zxcb', formContact) // service, template, formulário
             console.log(response);
@@ -141,7 +139,7 @@ export default function Payment() {
                                 <input type='text' name='validade' onChange={changeCard} ref={validade} maxLength='5' />
                                 <label htmlFor='cpf' >CPF:</label>
                                 <input type='text' name='cpf' maxLength='11' />
-                                <Button main="true" text="Comprar" functions={(e) => sendEmail(e)} />
+                                <Button main="true" text="Concluir" functions={(e) => sendEmail(e)} />
                             </div>
                         </div>
                     </>}
@@ -153,7 +151,7 @@ export default function Payment() {
                             <img src='/img/qrcode.svg' alt='' />
                             <h3 >Copie o código:</h3>
                             <span>qr.codes/EJOGsX <i className="fa-solid fa-copy"></i></span>
-                            <Button main="true" text="Comprar" functions={() => setModal(true)} />
+                            <Button main="true" text="Concluir" functions={(e) => sendEmail(e)} />
                         </div>
                     </>
                     }
