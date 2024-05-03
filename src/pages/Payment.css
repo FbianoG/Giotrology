@@ -249,6 +249,11 @@ color: #666;
         text-align: center;
     }
 
+    .paymentPix {
+        position: relative;
+        top: -50px;
+    }
+
     .checkout-price {
         align-items: center;
     }
