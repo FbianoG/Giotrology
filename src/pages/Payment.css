@@ -1,11 +1,77 @@
+.paymentContainer {
+    width: 800px;
+    height: 460px;
+    margin: 100px auto;
+    display: flex;
+
+}
+
+.checkout {
+    width: 400px;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #12101c, #12101c99);
+}
+
+.checkout h3 {
+    font-family: "Smythe", system-ui;
+    font-size: 48px;
+    color: #fdfdfd;
+}
+
+.checkout-type {
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    
+}
+
+.checkout-typePayment {
+    width: 135px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: #ccc;
+    background: #0002;
+    border-radius: 20px;
+}
+
+.checkout-typePayment input {
+    cursor: pointer;
+    width: 100%;
+}
+
+.checkout-typePayment img {
+    width: 100%;
+}
+
+.checkout-price {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.checkout-priceLegend {
+/* margin: 0 0 10px; */
+color: #666;
+}
+
+.checkout-priceValue {
+    font-size: 48px;
+    color: #fdfdfd;
+    font-family:  "Smythe", system-ui;
+}
+
 .paymentContent {
     width: 500px;
     background: #0002;
-    margin: 100px auto 100px;
     padding: 20px;
 }
-
-
 
 .paymentCard {
     background: #12101c;
@@ -59,7 +125,7 @@
     display: grid;
     grid-template-columns: 90% 1fr;
     justify-content: flex-start;
-    
+
 }
 
 .paymentCardDataName {
@@ -76,12 +142,12 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.paymentForm label{
-    color: #666 ;
+.paymentForm label {
+    color: #666;
     font-size: 16px;
 }
 
-.paymentForm input{ 
+.paymentForm input {
     background: transparent;
     border: none;
     border-bottom: 1px solid #fff1;
@@ -106,7 +172,7 @@
 }
 
 .paymentFormBandeira label {
-    margin: 0 25px 0 0 ;
+    margin: 0 25px 0 0;
 }
 
 .paymentFormGroup .mainBtn {
@@ -121,16 +187,71 @@
     flex-direction: column;
 }
 
+.paymentPix {
+    width: 250px;
+    margin: 0 auto;
+    
+}
+
+.paymentPix img {
+    width: 100%;
+}
+
+.paymentPix h3 {
+    color: #fdfdfd;
+    margin: 0 0 5px;
+}
+
+.paymentPix span {
+    margin-top: 0 auto;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    font-size: 14px;
+    color: #999;
+    background: transparent;
+    border: 1px solid #333;
+}
+
+.paymentPix span i {
+    cursor: pointer;
+}
+
+
 
 
 
 /* MB <= 767 - TB <= 1023 - */
 @media screen and (max-width: 767px) {
+
+    .paymentContainer {
+        width: max-content;
+        height: max-content;
+        flex-direction: column;
+        gap: 50px;
+    }
+
     .paymentContent {
         width: 100%;
         background: none;
         padding: 0 0 50px;
     }
+
+    .checkout {
+        /* order: 2; */
+        background: none;
+        gap: 50px;
+    }
+
+    .checkout h3 {
+        text-align: center;
+    }
+
+    .checkout-price {
+        align-items: center;
+    }
+
     .paymentForm {
         display: block;
         padding: 0 5%;
