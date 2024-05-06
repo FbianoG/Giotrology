@@ -66,41 +66,43 @@ export default function Payment() {
                     <div className="paymentSection">
                         <div className="paymentSectionCard">
 
-                                <img src="https://static.vecteezy.com/system/resources/thumbnails/029/145/582/small_2x/astrology-wheel-with-zodiac-signs-vintage-frame-divine-magic-hand-drawn-antique-illustration-png.png" alt="fundo" id="paymentSectionCardBackgroud" />
-                                <img src="" alt="Imagem bandeira do cartão" />
-                                <label for="">Nº Cartão</label>
-                                <span></span>
-                                <div class="paymentCardData">
-                                    <div class="paymentCardDataName">
-                                        <label for="">Nome</label>
-                                        <span></span>
-                                    </div>
-                                    <div class="paymentCardDataName">
-                                        <label for="">CVV</label>
-                                        <span></span>
-                                    </div>
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/029/145/582/small_2x/astrology-wheel-with-zodiac-signs-vintage-frame-divine-magic-hand-drawn-antique-illustration-png.png" alt="fundo" id="paymentSectionCardBackgroud" />
+                            <img src="" alt="Imagem bandeira do cartão" />
+                            <label for="">Nº Cartão</label>
+                            <span></span>
+                            <div class="paymentCardData">
+                                <div class="paymentCardDataName">
+                                    <label for="">Nome</label>
+                                    <span></span>
                                 </div>
-                                <label for="">Validade:</label>
-                                <span></span>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                <div class="paymentCardDataName">
+                                    <label for="">CVV</label>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <label for="">Validade:</label>
+                            <span></span>
                         </div>
+
+                        <div className="paymentSectionCouple">
+                            <label >Bandeira do Cartão</label>
+                            <select>
+                                <option value="1">Master</option>
+                                <option value="2">Visa</option>
+                            </select>
+                            <label >Nº Cartão</label>
+                            <input type='text' />
+                            <label >Nome no Cartão</label>
+                            <input type='text' />
+                            <div className="paymentSectionCoupleRow">
+                                <label >CVV</label>
+                                <label >Validade</label>
+                                <input type='number' />
+                                <input type='text' />
+                            </div>
+                        </div>
+                        <Button main text='Solicitar' functions={() => setShowLove(true)} />
+
                     </div>
 
                     <div className="paymentSection">
@@ -125,7 +127,7 @@ export default function Payment() {
                                 </div>
 
                             </div>
-                            <Button main text='Seu Amor' functions={() => setShowLove(true)} />
+                            <Button text='Seu Amor' functions={() => setShowLove(true)} />
                         </>}
                         {showLove && <>
                             <h3 className='paymentSectionTitle'>Informações do Seu Amor</h3>
@@ -146,7 +148,7 @@ export default function Payment() {
                                 </div>
 
                             </div>
-                            <Button main text='Seus Dados' functions={() => setShowLove(false)} />
+                            <Button text='Seus Dados' functions={() => setShowLove(false)} />
                         </>}
 
                     </div>
