@@ -38,20 +38,10 @@ export default function SectionTitleBlog() {
                                 <br />
                                 <span>por: Giovanna Salles</span>
                             </legend>
-                            {element.articles.map(e => {
-                                return (
-                                    <>
-                                        <h2>{e.subTitle}</h2>
-                                        {e.article.map(n => (
-                                            <>
-                                                <p>{n}</p>
-                                                <br />
-                                            </>
-                                        )
-                                        )}
-                                        <br />
-                                    </>
-                                )
+                            {element.article.map(e => {
+                                if (e.slice(0, 2) === '**') return <h2>{e.slice(2)}</h2>
+                                else return (<><p>{e}</p> <br /></>)
+
                             })}
                         </div>
                         <FormEmail />

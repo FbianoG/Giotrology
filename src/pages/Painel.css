@@ -1,180 +1,98 @@
-.formCreateArticle {
-    width: 80%;
-    margin: 0 auto;
-    border: 1px solid #fff1;
-    padding: 20px;
-}
-
-.formCreateArticle h2 {
-    color: var(--corWhiteText);
-}
-
-.alertCreateArticle {
-    font-weight: 300;
-    font-size: 30px;
-    margin: 20px auto;
-    width: 80%;
-}
-
-
-.formCreateArticle input {
-    width: 500px;
-    height: 40px;
-    font-size: 20px;
-    padding: 3px 5px;
-    margin: 20px 0 0;
-    font-weight: 300;
-    color: var(--corWhiteText);
-    background: #fff1;
-    border: 1px solid #fff1;
-    outline: none;
-}
-
-.formCreateArticle input:focus {
-    border: 1px solid #5362ae;
-}
-
-
-.formParagraphs {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 0 0 40px;
-}
-
-.formParagraphs textarea {
-    width: 100%;
-    height: 80px;
-    padding: 3px 5px;
-    font-size: 20px;
-    background: #fff1;
-    border: 1px solid #fff1;
-    outline: none;
-    color: var(--corWhiteText);
-    font-weight: 300;
-}
-
-.formCreateArticle textarea:focus {
-    border: 1px solid #5362ae;
-}
-
-
-.formCreateArticleButtons {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-
-.headerPainel {
-    width: 80%;
-    height: 50px;
-    margin: 50px auto 0;
-    display: flex;
-    align-items: flex-end;
-}
-
-.headerPainel button {
-    height: 50px;
-    font-size: 25px;
-    font-weight: 300;
-    background: #5362ae;
-    border: none;
-    margin: 0 10px 0 0;
-    padding: 0 10px;
+.content__title {
+    margin: 0 auto 20px;
+    width: max-content;
     color: #fdfdfd;
-    /* transform: translateY(20px); */
-    cursor: pointer;
-    transition: 400ms;
+    font-size: 32px;
+    font-weight: 500;
 }
 
-
-
-
-
-
-
-.articlesList {
-    width: 80%;
-    margin: 0 auto;
-    border: 1px solid #fff1;
+.form__article {
+    width: 700px;
+    margin: 0 auto 100px;
+    padding: 30px;
+    position: relative;
     display: flex;
-    flex-direction: column;
-    padding: 20px 0 0;
-}
-
-
-.articleCard {
-
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #5362ae;
-}
-
-.articleCardData {
-    display: flex;
-    flex-direction: column;
     gap: 5px;
+    flex-direction: column;
+    border: 1px solid #fff1;
+    backdrop-filter: blur(2px);
 }
 
-.articleCardData span:nth-child(2) {
-    color: #777;
-}
-
-.articleCardData span {
-    color: #ccc;
-}
-
-.articleCardButtons {
-    width: fit-content;
-    display: flex;
-    gap: 10px;
-}
-
-.articleCardButtons button {
+.btn__changeForm {
     padding: 10px;
-    background: #5362ae;
-    border: none;
+    position: absolute;
+    right: 30px;
+    top: 30px;
     color: #fdfdfd;
+    background: none;
+    border: 1px solid #ccc;
     cursor: pointer;
 }
 
-.articleCardButtons button:hover {
-    transition: 400ms;
-    filter: brightness(1.2);
+.form__article label {
+    color: var(--corDarkText);
+    font-weight: 500;
+    font-size: 18px;
+
 }
 
-.articleCardButtons .btnArticleDelete {
-    background: #d85252;
+.form__article input {
+    margin: 0 0 20px;
+    padding: 5px;
+    color: #ccc;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #fff1;
+    outline: none;
+    font-size: 18px;
+
+    &:focus {
+        border-color: var(--corBtn);
+    }
 }
 
+.form__article textarea {
+    height: 400px;
+    padding: 10px;
+    margin: 0 0 20px;
+    color: #ccc;
+    background: none;
+    border: 1px solid #fff1;
+    font-size: 18px;
+    outline: none;
 
+    &:focus {
+        background: #0003;
+        border-color: var(--corBtn);
+    }
+}
 
-
-.formEdit {
+.form__article.list {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
+.listArticle__iten {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    font-size: 18px;
+    color: #ddd;
+}
 
-
+.listArticle__iten span:nth-child(1) {
+    margin: 0 auto 0 0;
+}
 
 /* MB <= 767 - TB <= 1023 - */
 @media screen and (max-width: 767px) {
-
-    .formCreateArticle {
-        width: 90%;
+    .form__article {
+        width: 100%;
+        border: none;
+        padding: 0;
     }
 
-    .formCreateArticle input {
+    .form__article textarea {
         width: 100%;
     }
-
-    .formCreateArticleButtons {
-        justify-content: center;
-    }
-
 }

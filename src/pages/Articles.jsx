@@ -33,8 +33,8 @@ export default function Articles() {
                 <h1 className="title">Todos os Artigos</h1>
                 <div className="listBlog">
                     {Articles &&
-                        Articles.map((element, index) => (
-                            <CardArticle key={index} data={element} />
+                        Articles.map(element => (
+                            <CardArticle key={element._id} data={element} />
                         ))
                     }
                 </div>

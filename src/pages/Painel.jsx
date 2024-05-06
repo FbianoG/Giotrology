@@ -1,224 +1,155 @@
-import { useState, useEffect, useRef } from 'react'
-import "./Painel.css";
+import { useState } from 'react'
+import './Painel.css'
+import { useEffect } from 'react'
+import axios from 'axios'
 import urlBack from '../utils/api'
-import FormArticleEdit from '../components/Layout/formArticleEdit';
-import Button from '../components/Common/Button';
+import Button from '../components/Common/Button'
+import Stars from '../components/Common/Stars'
+import Footer from '../components/Shared/Footer'
 
 export default function Painel() {
+    const [text, setText] = useState(null)
+    const [title, setTitle] = useState(null)
+    const [src, setSrc] = useState(null)
+    const [article, setArticle] = useState(false)
 
-    const alert = useRef()
-    const createList = useRef()
-    const title = useRef()
-    const linkUrl = useRef()
-    const editBtn = useRef()
-    const createBtn = useRef()
+    const [textUpdate, setTextUpdate] = useState('')
+    const [titleUpdate, setTitleUpdate] = useState('')
+    const [srcUpdate, setSrcUpdate] = useState('')
+    const [articleUpdate, setArticleUpdate] = useState('')
+    const [showUpdate, setShowUpdate] = useState(false)
+    const [updateId, setUpdateId] = useState('')
 
-    const [editArticle, setEditArticle] = useState(true)
-    const [Articles, setArticles] = useState(false)
+    const [listArticle, setListArticle] = useState(false)
+    const [articles, setArticles] = useState([])
+    const [findArticle, setFindArticle] = useState(null)
 
 
-    function createParagraph() {
-        const count = createList.current.querySelectorAll('input').length
-        const newPara = document.createElement('textarea')
-        newPara.className = "article" + count
-        newPara.placeholder = "Parágrafo 0" + (count)
-        createList.current.appendChild(newPara)
+    function changeText() {
+        if (!text || text.trim() === '') return
+        setArticle(text.split('\n'))
     }
 
-    function createSubTitle() {
-        const count = createList.current.querySelectorAll('input').length
-        const newSub = document.createElement('input')
-        newSub.placeholder = "Subtítulo 0" + (count + 1)
-        newSub.className = "sub" + (count + 1)
-        const newDelBtn = document.createElement("button")
-        newDelBtn.textContent = "Excluir"
-        createList.current.appendChild(newSub)
-        createList.current.appendChild(newDelBtn)
-        newDelBtn.addEventListener("click", () => deleteParagraph(newDelBtn, count + 1))
-    }
-
-    function deleteParagraph(btn, e) {
-        const allDelete = document.querySelectorAll(`.article${e}`)
-        const allDelete2 = document.querySelectorAll(`.sub${e}`)
-        allDelete.forEach(element => element.remove())
-        allDelete2.forEach(element => element.remove())
-        btn.remove()
-    }
-
-    async function createArticle() {
-        const totalSub = createList.current.querySelectorAll('input').length
-        const art = {
-            title: title.current.value,
-            date: new Date(),
-            src: linkUrl.current.value,
-            articles: []
-        }
-
-        for (let i = 1; i <= totalSub; i++) {
-            const allArticle = Array.from(createList.current.querySelectorAll('.article' + i))
-            const arrayArticle = allArticle.map(element => element.value)
-            const newParagraphs = { subTitle: createList.current.querySelectorAll('input')[i - 1].value, article: arrayArticle }
-            art.articles.push(newParagraphs)
-
-        }
-
+    async function createArticle() { // Cria artigo no DataBase
+        console.log(article.length);
         try {
-            const response = await fetch(`${urlBack}/createArticle`, {
-                method: "POST",
-                body: JSON.stringify(art),
-                headers: { "Content-Type": "application/json" }
-            })
-            const data = await response.json()
-            if (response.ok) {
-                console.log(data)
-                alert.current.style.color = "green"
-                alert.current.textContent = data.message
-                setEditArticle(true)
-            } else {
-                alert.current.style.color = "red"
-                alert.current.textContent = data.message
-
-            }
+            const response = await axios.post(`${urlBack}/createArticle`, { title, src, article, })
+            console.log(response.data);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 
-
-
-
-
-    async function getArticles() {
-        const response = await fetch(`${urlBack}/getArticles`, {
-            method: "POST",
-            body: JSON.stringify(),
-            headers: { "Content-Type": "application/json" }
-        })
-        const data = await response.json()
-        if (response.ok) {
-            setArticles(data)
-            console.log(data);
+    async function getArticles() { // get artigos no DataBase
+        try {
+            const response = await axios.post(`${urlBack}/getArticles?`,)
+            setArticles(response.data)
+        } catch (error) {
+            console.log(error);
         }
     }
 
-    async function updateArticleee(params) {
-        const response = await fetch(`${urlBack}/updateArticle`, {
-            method: "POST",
-            body: JSON.stringify({}),
-            headers: { "Content-Type": "application/json" }
-        })
-        const data = await response.json()
-        if (response.ok) {
-            setArticles(data)
-            console.log(data);
+    async function getArticle(id) { // get artigo no DataBase
+        try {
+            const response = await axios.post(`${urlBack}/getArticle?id=${id}`,)
+            setTextUpdate(response.data.article.join('\n'))
+            setTitleUpdate(response.data.title)
+            setSrcUpdate(response.data.src)
+            setUpdateId(id)
+            setShowUpdate(true)
+        } catch (error) {
+            console.log(error);
         }
     }
 
-
-
-    async function deleteArticle(e) {
-        const _id = e.target.name
-
-        const response = await fetch(`${urlBack}/deleteArticle`, {
-            method: "POST",
-            body: JSON.stringify({ _id }),
-            headers: { "Content-Type": "application/json" }
-        })
-        const data = await response.json()
-        if (response.ok) {
+    async function updateArticle(e) { // Atualiza artigo no DataBase
+        e.preventDefault()
+        try {
+            const response = await axios.post(`${urlBack}/updateArticle`, { _id: updateId, title: titleUpdate, src: srcUpdate, article: textUpdate.split('\n') })
+            console.log(response.data);
+            setShowUpdate(false)
             getArticles()
-            console.log(data);
+        } catch (error) {
+            console.log(error);
         }
-
-
-
     }
 
-    const [updateArticlee, setUpdateArticle] = useState(false)
-
-    async function updateArticle(e) {
-        const _id = e.target.name
-        const article = Articles.find(element => element._id === _id)
-        console.log(article);
-        setUpdateArticle(article);
-
+    async function deleteArticle(e) { // Deleta artigo no DataBase
+        try {
+            const response = await axios.post(`${urlBack}/deleteArticle`, { _id: e })
+            console.log(response);
+            getArticles()
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     useEffect(() => {
-        setUpdateArticle(false)
-        if (editArticle) {
-            createBtn.current.style.opacity = "0.2"
-            createBtn.current.style.height = "35px"
-            editBtn.current.style.opacity = ""
-            editBtn.current.style.height = ""
-        } else {
-            editBtn.current.style.opacity = "0.2"
-            editBtn.current.style.height = "35px"
-            createBtn.current.style.opacity = ""
-            createBtn.current.style.height = ""
+        if (article) {
+            createArticle()
         }
-    }, [editArticle])
-
-    useEffect(() => {
-        getArticles()
-    }, [])
+    }, [article])
 
     return (
         <>
+            <div className="content">
 
-
-
-
-            <div className="headerPainel">
-                <button ref={editBtn} onClick={() => setEditArticle(true)}>Editar Artigos</button>
-                <button ref={createBtn} onClick={() => setEditArticle(false)}>Criar Artigo</button>
-            </ div>
-
-            {updateArticlee &&
-                <FormArticleEdit article={updateArticlee} function={{ deleteParagraph, createParagraph, createSubTitle }} ref={createList} />
-            }
-
-            {editArticle ?
-                <>
-                    <div className="articlesList">
-                        {Articles &&
-                            Articles.map(element => (
-                                <div className="articleCard" key={element._id}>
-                                    <div className="articleCardData">
-                                        <span>{element.title}</span>
-                                        <span>{element.date.slice(0, 10).split('-').reverse().join("/")}</span>
-                                    </div>
-                                    <div className="articleCardButtons">
-                                        <button name={element._id} onClick={updateArticle}>Editar</button>
-                                        <button className='btnArticleDelete' name={element._id} onClick={deleteArticle}>Excluir</button>
+                {listArticle && <button className='btn__changeForm' onClick={(e) => setListArticle(false)} type='default'>Criar de Artigos</button>}
+                {!listArticle && <button className='btn__changeForm' onClick={(e) => { getArticles(), setListArticle(true) }} type='default'>Lista de Artigos</button>}
+                {!listArticle &&
+                    <>
+                        <h2 className='content__title'>Criar Artigo</h2>
+                        <form className='form__article'>
+                            <label htmlFor='' >Título:</label>
+                            <input type='text' className='form__input' value={title} onChange={(e) => setTitle(e.target.value)} />
+                            <label htmlFor=''>Url imagem:</label>
+                            <input type='text' className='form__input' value={src} onChange={(e) => setSrc(e.target.value)} />
+                            <label htmlFor=''>Artigo:</label>
+                            <textarea className='form__textarea' value={text} onChange={(e) => setText(e.target.value)} ></textarea>
+                            <Button main text={'Criar Artigo'} functions={changeText} />
+                        </form>
+                    </>
+                }
+                {listArticle && !showUpdate &&
+                    <>
+                        <h2 className='content__title'>Lista De Artigos</h2>
+                        <div className="form__article list">
+                            {articles.map(element => (
+                                <div key={element._id} className="listArticle__iten">
+                                    <span>{element.title}</span>
+                                    <span>{element.date.slice(0, 10).split('-').reverse().join('/')}</span>
+                                    <div className="listArticle__iten cotainerBtn">
+                                        <button onClick={() => deleteArticle(element._id)} >Exluir</button>
+                                        <button onClick={() => { getArticle(element._id) }}>Editar</button>
                                     </div>
                                 </div>
-                            ))
-                        }
-                    </div>
-                </>
-                :
-                <>
-                    <div className='formCreateArticle'>
-                        <h2>Criar Novo Artigo</h2>
-                        <input type='text' name='' placeholder="Título" ref={title} />
-                        <br />
-                        <input type='text' name='' placeholder="Link Imagem" ref={linkUrl} />
-                        <div ref={createList} className='formParagraphs'>
-                            <input type='text' name='' placeholder="Subtítulo 01" />
-                            <textarea className="article1" placeholder='Parágrafo 01'></textarea>
+                            ))}
                         </div>
+                    </>
+                }
 
-                        <div className="formCreateArticleButtons">
-                            <Button main={true} text="Add Parágrafo" functions={createParagraph} />
-                            <Button main={true} text="Add Subtítulo" functions={createSubTitle} />
-                            <Button main={false} text="Criar" functions={createArticle} />
-                        </div>
-                    </div>
+                {showUpdate &&
+                    <>
+                        <h2 className='content__title'>Editar Artigo</h2>
+                        <form className='form__article' >
+                            <label htmlFor='' >Título:</label>
+                            <input type='text' className='form__input' value={titleUpdate} onChange={(e) => setTitleUpdate(e.target.value)} />
+                            <label htmlFor=''>Url imagem:</label>
+                            <input type='text' className='form__input' value={srcUpdate} onChange={(e) => setSrcUpdate(e.target.value)} />
+                            <label htmlFor=''>Artigo:</label>
+                            <textarea className='form__textarea' value={textUpdate} onChange={(e) => setTextUpdate(e.target.value)} ></textarea>
+                            <Button main text={'Editar Artigo'} functions={(e) => updateArticle(e)} />
+                            <Button text={'Cancelar'} functions={(e) => { e.preventDefault(), setShowUpdate(false) }} />
+                        </form>
+                    </>
+                }
 
-                </>
-            }
-            <h3 ref={alert} className='alertCreateArticle'></h3>
+
+
+
+            </div>
+            <Footer />
+            <Stars />
         </>
 
     )
