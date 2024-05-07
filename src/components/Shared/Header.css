@@ -4,7 +4,7 @@ header {
   justify-content: space-around;
   align-items: center;
   height: 70px;
-  
+
   & nav {
     display: flex;
     gap: 20px;
@@ -37,20 +37,64 @@ header {
   }
 }
 
+.header__btnMenu {
+  display: none;
+  color: #fdfdfd;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 767px) {
   header {
     width: 100%;
-
+    justify-content: space-between;
+    padding: 0 10%;
     margin: 0 0 30px;
     position: fixed;
     top: 0;
     background: #202a3a;
     z-index: 10;
+  }
 
-    & nav {
-      display: none;
+
+  header nav {
+    width: 300px;
+    height: 100vh;
+    padding: 40px;
+    position: fixed;
+    top: 70px;
+    right: -300px;
+    background: linear-gradient(to bottom, #202a3a, #080611);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 30px;
+    transition: 350px;
+    animation: showw 400ms both ease;
+    font-weight: 300;
+  }
+
+  @keyframes showw {
+    0% {}
+
+    100% {
+      right: 0;
     }
   }
 
+  header nav:hover a:not(:hover) {
+    opacity: 1;
+    filter: none;
+  }
+
+
+
+
+
+  .header__btnMenu {
+    display: block;
+  }
 
 }
