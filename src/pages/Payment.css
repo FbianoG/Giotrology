@@ -49,7 +49,7 @@
 .paymentSectionCard {
     width: 320px;
     height: 190px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     padding: 20px;
     position: relative;
     display: flex;
@@ -58,6 +58,13 @@
     border-radius: 12px;
     box-shadow: 3px 3px 5px #0003;
     overflow: hidden;
+}
+
+.paymentSectionCard img:nth-child(2) {
+    max-width: 80px;
+    min-height: 26px;
+    max-height: 26px;
+    margin: 0 0 0 auto;
 }
 
 .paymentSectionCard span {
@@ -117,7 +124,9 @@
     outline: none;
 }
 
-.paymentSectionCouple option { color: #333;}
+.paymentSectionCouple option {
+    color: #333;
+}
 
 
 .paymentSectionCoupleRow {
@@ -128,6 +137,22 @@
 
 .paymentSection button {
     margin: 0 auto;
+}
+
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000a;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 }
 
 /* MB <= 767 - TB <= 1023 - */

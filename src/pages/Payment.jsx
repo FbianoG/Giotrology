@@ -4,40 +4,10 @@ import Button from '../components/Common/Button'
 import Stars from '../components/Common/Stars';
 import Footer from '../components/Shared/Footer';
 import Header from '../components/Shared/Header';
+import Loader from "../components/Common/Loader";
 
 export default function Payment() {
 
-
-
-    // function changeBandeira(e) {
-    //     const band = e.target.value
-    //     if (band === "master") {
-    //         bandeira.current.src = "https://logosmarcas.net/wp-content/uploads/2020/09/Mastercard-Logo.png"
-    //     } else {
-    //         bandeira.current.src = "https://logopng.com.br/logos/visa-17.png"
-
-    //     }
-    // }
-
-    // emailjs.init("ceAIIFLHMCK_ganFy") // public key - iniciar fora da function
-    // async function sendEmail(e) { // Envia o formulário de contato para meu Email
-    //     e.preventDefault()
-    //     const formContact = { nome1, nome2, bairro1, bairro2, cidade1, cidade2, estado1, estado2, data1, data2, hora1, hora2, email }
-    //     if (Object.values(formContact).some(element => element.trim() === '')) {
-    //         setMapData(true)
-    //         return
-    //     }
-    //     try {
-    //         const response = await emailjs.send('service_oc8e0g4', 'template_082zxcb', formContact) // service, template, formulário
-    //         console.log(response);
-
-    //     } catch (error) {
-    //         console.log('Erro ao enviar e-mail:', error);
-    //     }
-    // }
-
-
-    const [mapData, setMapData] = useState(true)
     const [nome1, setNome1] = useState('')
     const [nome2, setNome2] = useState('')
     const [bairro1, setBairro1] = useState('')
@@ -51,6 +21,32 @@ export default function Payment() {
     const [hora1, setHora1] = useState('')
     const [hora2, setHora2] = useState('')
     const [email, setEmail] = useState('')
+    const [bandeira, setBandeira] = useState('1')
+    const [loadingEmail, setLoadingEmail] = useState(false)
+
+
+    emailjs.init("ceAIIFLHMCK_ganFy") // public key - iniciar fora da function
+    async function sendEmail(e) { // Envia o formulário de contato para meu Email
+        e.preventDefault()
+        setLoadingEmail(true)
+        const formContact = { nome1, nome2, bairro1, bairro2, cidade1, cidade2, data1, data2, hora1, hora2, email }
+        if (!nome1, !nome2, !bairro1, !bairro2, !cidade1, !cidade2, !data1, !data2, !hora1, !hora2, !email) {
+            window.alert('Preencha todos os campos!')
+            setLoadingEmail(false)
+            return
+        }
+        try {
+            const response = await emailjs.send('service_oc8e0g4', 'template_082zxcb', formContact) // service, template, formulário
+            console.log(response);
+
+        } catch (error) {
+            console.log('Erro ao enviar e-mail:', error);
+        }
+        setLoadingEmail(false)
+    }
+
+
+
 
     const [showLove, setShowLove] = useState(false)
     return (
@@ -67,7 +63,8 @@ export default function Payment() {
                         <div className="paymentSectionCard">
 
                             <img src="https://static.vecteezy.com/system/resources/thumbnails/029/145/582/small_2x/astrology-wheel-with-zodiac-signs-vintage-frame-divine-magic-hand-drawn-antique-illustration-png.png" alt="fundo" id="paymentSectionCardBackgroud" />
-                            <img src="" alt="Imagem bandeira do cartão" />
+                            {bandeira === '1' && <img src="https://logosmarcas.net/wp-content/uploads/2020/09/Mastercard-Logo.png" alt="Imagem bandeira do cartão" />}
+                            {bandeira === '2' && <img src="https://logodownload.org/wp-content/uploads/2016/10/visa-logo-15.png" alt="Imagem bandeira do cartão" />}
                             <label for="">Nº Cartão</label>
                             <span></span>
                             <div class="paymentCardData">
@@ -86,8 +83,8 @@ export default function Payment() {
 
                         <div className="paymentSectionCouple">
                             <label >Bandeira do Cartão</label>
-                            <select>
-                                <option value="1">Master</option>
+                            <select onChange={(e) => setBandeira(e.target.value)}>
+                                <option value='1' selected>Master</option>
                                 <option value="2">Visa</option>
                             </select>
                             <label >Nº Cartão</label>
@@ -101,7 +98,7 @@ export default function Payment() {
                                 <input type='text' />
                             </div>
                         </div>
-                        <Button main text='Solicitar' functions={() => setShowLove(true)} />
+                        <Button main text='Solicitar' functions={(e) => sendEmail(e)} />
 
                     </div>
 
@@ -110,20 +107,20 @@ export default function Payment() {
                             <h3 className='paymentSectionTitle'>Suas Informações</h3>
                             <div className="paymentSectionCouple">
                                 <label >E-mail</label>
-                                <input type='text' />
+                                <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} />
                                 <label >Nome Completo</label>
-                                <input type='text' />
+                                <input type='text' value={nome1} onChange={(e) => setNome1(e.target.value)} />
                                 <div className="paymentSectionCoupleRow">
                                     <label >Hora de Nasc.</label>
                                     <label >Dia de Nasc.</label>
-                                    <input type='time' />
-                                    <input type='date' />
+                                    <input type='time' value={hora1} onChange={(e) => setHora1(e.target.value)} />
+                                    <input type='date' value={data1} onChange={(e) => setData1(e.target.value)} />
                                 </div>
                                 <div className="paymentSectionCoupleRow">
                                     <label >Bairro de Nasc.</label>
                                     <label >Cidade de Nasc.</label>
-                                    <input type='text' />
-                                    <input type='text' />
+                                    <input type='text' value={bairro1} onChange={(e) => setBairro1(e.target.value)} />
+                                    <input type='text' value={cidade1} onChange={(e) => setCidade1(e.target.value)} />
                                 </div>
 
                             </div>
@@ -133,18 +130,18 @@ export default function Payment() {
                             <h3 className='paymentSectionTitle'>Informações do Seu Amor</h3>
                             <div className="paymentSectionCouple">
                                 <label >Nome Completo</label>
-                                <input type='text' />
+                                <input type='text' value={nome2} onChange={(e) => setNome2(e.target.value)} />
                                 <div className="paymentSectionCoupleRow">
                                     <label >Hora de Nasc.</label>
                                     <label >Dia de Nasc.</label>
-                                    <input type='time' />
-                                    <input type='date' />
+                                    <input type='time' value={hora2} onChange={(e) => setHora2(e.target.value)} />
+                                    <input type='date' value={data2} onChange={(e) => setData2(e.target.value)} />
                                 </div>
                                 <div className="paymentSectionCoupleRow">
                                     <label >Bairro de Nasc.</label>
                                     <label >Cidade de Nasc.</label>
-                                    <input type='text' />
-                                    <input type='text' />
+                                    <input type='text' value={bairro2} onChange={(e) => setBairro2(e.target.value)} />
+                                    <input type='text' value={cidade2} onChange={(e) => setCidade2(e.target.value)} />
                                 </div>
 
                             </div>
@@ -154,6 +151,10 @@ export default function Payment() {
                     </div>
                 </div>
             </div>
+
+            {loadingEmail && <div className="backdrop">
+                <Loader />
+            </div>}
 
             <Stars />
             <Footer />
