@@ -152,7 +152,7 @@ export default function Payment() {
                 </div>
             </div>
 
-            {loadingEmail && <div className="backdrop">
+            {loadingEmail && <div className="backdropLoad">
                 <Loader />
             </div>}
 
