@@ -117,14 +117,11 @@ fieldset {
 }
 
 .payment__sumary h3 {
-    padding: 0px 30px 0;
 }
 
 .payment__sumary-product {
-    padding: 30px;
     display: flex;
     gap: 20px;
-    border-bottom: 1px solid #fff1;
 }
 
 .payment__sumary-product figure {
@@ -146,13 +143,10 @@ fieldset {
 }
 
 .payment__sumary-pricing {
-    margin: 0 0 30px;
-    padding: 30px;
     display: grid;
     grid-template-columns: max-content max-content;
     justify-content: space-between;
     gap: 10px;
-    border-bottom: 1px solid #fff1;
 }
 
 .payment__sumary-divider {
@@ -160,6 +154,11 @@ fieldset {
     height: 1px;
     margin: 30px 0;
     background: #fff1;
+    grid-column: span 2;
+    display: block;
+}
+
+.payment__sumary-divider.-pricing {
     grid-column: span 2;
 
 }

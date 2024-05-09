@@ -120,6 +120,7 @@ export default function Payment() {
                                 <p><strong>R$35,00</strong></p>
                             </div>
                         </div>
+                        <span className='payment__sumary-divider'></span>
                         <div className="payment__sumary-pricing">
                             <p>Subtotal</p>
                             <p><strong>R$35,00</strong></p>
@@ -127,10 +128,11 @@ export default function Payment() {
                             <p><strong>R$0,00</strong></p>
                             <p>Desconto</p>
                             <p><strong>R$3,50</strong></p>
-                            <span className='payment__sumary-divider'></span>
+                            <span className='payment__sumary-divider -pricing'></span>
                             <p className='payment__sumary-price--large'><strong>Total</strong></p>
                             <p className='payment__sumary-price--large'><strong>R$31,50</strong></p>
                         </div>
+                        <span className='payment__sumary-divider'></span>
                         <button className='payment__sumary-btn'>Confirmar envio</button>
                     </div>
                 </div>
