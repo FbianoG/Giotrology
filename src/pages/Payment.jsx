@@ -6,6 +6,7 @@ import Header from '../components/Shared/Header';
 import Loader from "../components/Common/Loader";
 import Stars from '../components/Common/Stars';
 import Footer from '../components/Shared/Footer';
+import Toast from '../components/Common/Toast';
 
 export default function Payment() {
 
@@ -13,16 +14,20 @@ export default function Payment() {
     const { register, handleSubmit, errors, reset } = useForm();
     const [loadingEmail, setLoadingEmail] = useState(false)
     const [bandeira, setBandeira] = useState('1')
+    const [toast, setToast] = useState(false)
 
 
     // Funções
     async function sendEmail(data) {
         setLoadingEmail(true)
         try {
+            // throw new Error('olá')
             const response = await emailjs.send(import.meta.env.VITE_REACT_APP_SERVICE, import.meta.env.VITE_REACT_APP_TEMPLATE, data)
+            setToast({ text: 'Solicitação enviado com sucesso!' })
             reset()
         } catch (error) {
             console.log('Erro ao enviar e-mail:', error);
+            setToast({ text: 'Erro ao solicitar. Tente novamente!', type: 'error' })
         }
         setLoadingEmail(false)
     }
@@ -121,6 +126,7 @@ export default function Payment() {
                 </form>
             </div>
             {loadingEmail && <div className="backdropLoad"><Loader /></div>}
+            {toast && <Toast data={toast} setToast={setToast} />}
             <Stars />
             <Footer />
         </>
