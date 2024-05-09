@@ -1,4 +1,5 @@
 footer {
+    margin: auto 0 0 0;
     background: url("https://www.pixel4k.com/wp-content/uploads/2019/03/stars-minimalism-space-digital-art_1551641886.jpg.webp");
     background-attachment: fixed;
     /* background-position: center; */
@@ -8,7 +9,6 @@ footer {
     gap: 20px;
     align-items: center;
     padding: 0 5%;
-
     width: 100%;
     height: 300px;
     position: relative;

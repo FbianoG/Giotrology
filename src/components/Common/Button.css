@@ -19,13 +19,12 @@
     font-size: 16px;
     color: #fdfdfd;
     background: transparent;
-    border: 1px solid #fdfdfd;
+    border: 1px solid #fff2;
     cursor: pointer;
 }
 
 .notMainBtn:hover {
     transition: 400ms;
-    background: #0003;
     border-color: #555;
     color: #5362ae;
 }

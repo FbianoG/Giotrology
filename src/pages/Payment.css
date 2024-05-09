@@ -2,167 +2,196 @@
     width: 100%;
 }
 
-.paymentContainer {
-    width: max-content;
+.container__payment {
+    width: 70%;
     margin: 0 auto;
-    padding: 50px 0 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    padding: 50px 0;
+    display: flex;
+    gap: 50px;
+    /* border: 1px solid red; */
 }
 
-.paymentSection {
-    width: 400px;
-    padding: 20px;
+.payment__form {
+    width: 100%;
+    min-width: 300px;
+}
+
+fieldset {
+    padding: 0 0 20px 0;
+    margin: 0 0 20px 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    border: 1px solid #fff3;
+    border: none;
+    border-bottom: 1px solid #fff7;
 }
 
-.paymentSectionTitle {
-    font-size: 24px;
-    font-weight: 400;
-    color: #fdfdfd;
+.fieldset--flex {
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
 }
 
-.paymentSectionSubtitle {
-    color: #fdfdfd;
-    font-size: 48px;
-    font-weight: normal;
-    font-family: "Smythe", system-ui;
+.payment__title {
+    margin: 0 0 20px;
+    color: var(--corBtn);
+    font-weight: 500;
 }
 
-.paymentSectionSubtitle span {
-    font-size: 24px;
-    font-family: "Smythe", system-ui;
+.payment__form label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #aaa;
+    margin: 0 0 5px;
 }
 
-.paymentSection .widgetDiscont {
-    margin: 0 0 0 0;
+.payment__form input {
+    padding: 8px;
+    margin: 0 0 10px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    background: #0001;
+    border: 1px solid #fff1;
+    border-radius: 5px;
+    outline: none;
+
+    &:focus {
+        border-color: slateblue;
+        background: #0003;
+    }
 }
 
-.paymentSection:nth-child(2) {
-    grid-row: span 2;
 
+/* payment__method */
+.payment__method {
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.paymentSectionCard {
-    width: 320px;
-    height: 190px;
-    margin: 0 auto 20px;
+.payment__method-item {
+    width: 180px;
+    height: 100px;
     padding: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
-    background: #12101c;
-    border-radius: 12px;
-    box-shadow: 3px 3px 5px #0003;
-    overflow: hidden;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 300ms;
+
+    &:hover {
+        border: 1px solid slateblue;
+    }
 }
 
-.paymentSectionCard img:nth-child(2) {
-    max-width: 80px;
-    min-height: 26px;
-    max-height: 26px;
-    margin: 0 0 0 auto;
+.payment__method-item img {
+    width: 50px;
 }
 
-.paymentSectionCard span {
-    height: 16px;
-    display: block;
+.payment__method-item p {
+    color: #555;
+    font-weight: 500;
 }
 
-#paymentSectionCardBackgroud {
-    width: 150px;
-    height: 150px;
-    max-height: none;
+.payment__method-selection {
+    width: 20px;
+    height: 20px;
     position: absolute;
-    bottom: -50%;
-    right: -10%;
-    opacity: .2;
+    right: 20px;
+    top: 20px;
+    border: 4px solid #9650eb;
+    border-radius: 50%;
+    background: slateblue;
 }
 
 
+/* payment__sumary */
+.payment__sumary {
+    width: 100%;
+    min-width: 300px;
+    height: max-content;
+    /* border: 1px solid #fff1; */
+    color: #ddd;
+}
 
+.payment__sumary h3 {
+    padding: 0px 30px 0;
+}
 
+.payment__sumary-product {
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid #fff1;
+}
 
-.paymentSectionCouple {
+.payment__sumary-product figure {
+    border: 1px solid #fff1;
+    width: 80px;
+    height: 100px;
+    background: #0005;
+}
+
+.sumary__product-details {
+    padding: 5px 0;
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
-.paymentSectionCouple label {
-    color: #aaa;
-    width: 100%;
+.sumary__product-details p:nth-last-child(1) {
+    margin: auto 0 0 0;
 }
 
-.paymentSectionCouple input {
-    width: 100%;
-    padding: 10px;
-    margin: 0 0 25px;
-    font-size: 18px;
-    background: none;
-    border: none;
-    border-bottom: 1px solid #fff1;
-    color: #ddd;
-    outline: none;
-}
-
-.paymentSectionCouple input:focus {
-    border-bottom: 1px solid var(--corBtn);
-}
-
-.paymentSectionCouple select {
-    width: 100%;
-    padding: 10px;
-    margin: 0 0 25px;
-    font-size: 18px;
-    background: none;
-    border: none;
-    border-bottom: 1px solid #fff1;
-    color: #ddd;
-    outline: none;
-}
-
-.paymentSectionCouple option {
-    color: #333;
-}
-
-
-.paymentSectionCoupleRow {
+.payment__sumary-pricing {
+    margin: 0 0 30px;
+    padding: 30px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 20px;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px solid #fff1;
 }
 
-.paymentSection button {
-    margin: 0 auto;
-}
-
-
-.backdropLoad {
-    position: fixed;
-    top: 0;
-    left: 0;
+.payment__sumary-divider {
     width: 100%;
-    height: 100%;
-    background: #000a;
-    z-index: 999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    height: 1px;
+    margin: 30px 0;
+    background: #fff1;
+    grid-column: span 2;
+
 }
+
+.payment__sumary-price--large {
+    font-size: 20px;
+}
+
+.payment__sumary-btn {
+    width: 90%;
+    margin: 0 auto 30px;
+    padding: 10px;
+    display: block;
+    font-size: 16px;
+    color: #fdfdfd;
+    background: var(--corBtn);
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+}
+
 
 /* MB <= 767 - TB <= 1023 - */
-@media screen and (max-width: 850px) {
-    .paymentContainer {
+@media screen and (max-width: 767px) {
+    .container__payment {
+        flex-wrap: wrap;
         width: 100%;
-        padding: 0 0 50px;
-        display: flex;
-        flex-direction: column;
+        padding: 30px 0 100px;
+        gap: 10px;
     }
 
     .paymentSection {
@@ -170,7 +199,23 @@
         border: none;
     }
 
+    .payment__method-item {
+        width: 150px;
+    }
+
     .paymentSection:nth-child(2) {
         order: 3;
+    }
+
+    .payment__sumary h3 {
+        padding: 0;
+    }
+
+    .payment__sumary-product {
+        padding: 0 0 30px;
+    }
+
+    .payment__sumary-pricing {
+        padding: 30px 20px;
     }
 }

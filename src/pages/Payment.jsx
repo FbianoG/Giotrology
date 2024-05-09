@@ -53,103 +53,93 @@ export default function Payment() {
         <>
             <Header />
             <div className="content">
-                <div className="paymentContainer">
-                    <div className="paymentSection">
-                        <h3 className='paymentSectionTitle'>Sinastria Amorosa</h3>
-                        <h2 className='paymentSectionSubtitle'><span>R$</span> 35,00</h2>
-                        <div className="widgetDiscont">10% OFF</div>
-                    </div>
-                    <div className="paymentSection">
-                        <div className="paymentSectionCard">
-
-                            <img src="https://static.vecteezy.com/system/resources/thumbnails/029/145/582/small_2x/astrology-wheel-with-zodiac-signs-vintage-frame-divine-magic-hand-drawn-antique-illustration-png.png" alt="fundo" id="paymentSectionCardBackgroud" />
-                            {bandeira === '1' && <img src="https://logosmarcas.net/wp-content/uploads/2020/09/Mastercard-Logo.png" alt="Imagem bandeira do cartão" />}
-                            {bandeira === '2' && <img src="https://logodownload.org/wp-content/uploads/2016/10/visa-logo-15.png" alt="Imagem bandeira do cartão" />}
-                            <label for="">Nº Cartão</label>
-                            <span></span>
-                            <div class="paymentCardData">
-                                <div class="paymentCardDataName">
-                                    <label for="">Nome</label>
-                                    <span></span>
-                                </div>
-                                <div class="paymentCardDataName">
-                                    <label for="">CVV</label>
-                                    <span></span>
-                                </div>
+                <div className="container__payment">
+                    <form className="payment__form">
+                        <fieldset>
+                            <h3 className="payment__title">Informações de contato</h3>
+                            <label htmlFor="email">E-mail</label>
+                            <input id="email" type="email" />
+                        </fieldset>
+                        <fieldset>
+                            <h3 className="payment__title">Sinastria - Pessoa 1</h3>
+                            <label htmlFor="name1">Nome Completo</label>
+                            <input id="name1" type="text" />
+                            <label htmlFor="city1">Cidade de Nascimento</label>
+                            <input id="city1" type="text" />
+                            <label htmlFor="bairro1">Bairro de Nascimento</label>
+                            <input id="bairro1" type="text" />
+                            <label id="date1" htmlFor="">Data de Nascimento</label>
+                            <input id="date1" type="date" />
+                            <label htmlFor="time1">Hora de Nascimento</label>
+                            <input id="time1" type="time" />
+                        </fieldset>
+                        <fieldset>
+                            <h3 className="payment__title">Sinastria - Pessoa 2</h3>
+                            <label htmlFor="name2">Nome Completo</label>
+                            <input type="text" />
+                            <label htmlFor="city2">Cidade de Nascimento</label>
+                            <input type="text" />
+                            <label htmlFor="bairro2">Bairro de Nascimento</label>
+                            <input type="text" />
+                            <label htmlFor="date2">  Data de Nascimento</label>
+                            <input type="date" />
+                            <label htmlFor="time2">Hora de Nascimento</label>
+                            <input type="time" />
+                        </fieldset>
+                        <h3 className="payment__title">Informações de Pagamento</h3>
+                        <fieldset className="fieldset--flex">
+                            <div className="payment__method-item">
+                                <img src="https://cdn-icons-png.flaticon.com/512/71/71227.png" alt="" />
+                                <p>Cartão</p>
                             </div>
-                            <label for="">Validade:</label>
-                            <span></span>
+                            <div className="payment__method-item">
+                                <span className="payment__method-selection"></span>
+                                <img src="https://logopng.com.br/logos/pix-106.png" alt="" />
+                                <p>Pix</p>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <h3 className="payment__title">Pagamento</h3>
+                            <label htmlFor="card">Número do Cartão</label>
+                            <input id="card" type="number" />
+                            <label htmlFor="cardName">Nome no Cartão</label>
+                            <input id="cardName" type="text" />
+                            <label htmlFor="validad">Validade (MM/AA)</label>
+                            <input id="validad" type="text" />
+                            <label htmlFor="cvv">Cvv</label>
+                            <input id="cvv" type="number" />
+                        </fieldset>
+                    </form>
+                    <div className="payment__sumary">
+                        <h3 className='payment__title'>Sumário de compra</h3>
+                        <div className="payment__sumary-product">
+                            <figure><img src='' alt='' /></figure>
+                            <div className="sumary__product-details">
+                                <p><strong>Sinastria Amorosa</strong></p>
+                                <p>p/ 2 pessoas</p>
+                                <p><strong>R$35,00</strong></p>
+                            </div>
                         </div>
-
-                        <div className="paymentSectionCouple">
-                            <label >Bandeira do Cartão</label>
-                            <select onChange={(e) => setBandeira(e.target.value)}>
-                                <option value='1' selected>Master</option>
-                                <option value="2">Visa</option>
-                            </select>
-                            <label >Nº Cartão</label>
-                            <input type='text' />
-                            <label >Nome no Cartão</label>
-                            <input type='text' />
-                            <div className="paymentSectionCoupleRow">
-                                <label >CVV</label>
-                                <label >Validade</label>
-                                <input type='number' />
-                                <input type='text' />
-                            </div>
+                        <div className="payment__sumary-pricing">
+                            <p>Subtotal</p>
+                            <p><strong>R$35,00</strong></p>
+                            <p>Taxas</p>
+                            <p><strong>R$0,00</strong></p>
+                            <p>Desconto</p>
+                            <p><strong>R$3,50</strong></p>
+                            <span className='payment__sumary-divider'></span>
+                            <p className='payment__sumary-price--large'><strong>Total</strong></p>
+                            <p className='payment__sumary-price--large'><strong>R$31,50</strong></p>
                         </div>
-                        <Button main text='Solicitar' functions={(e) => sendEmail(e)} />
-
-                    </div>
-
-                    <div className="paymentSection">
-                        {!showLove && <>
-                            <h3 className='paymentSectionTitle'>Suas Informações</h3>
-                            <div className="paymentSectionCouple">
-                                <label >E-mail</label>
-                                <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} />
-                                <label >Nome Completo</label>
-                                <input type='text' value={nome1} onChange={(e) => setNome1(e.target.value)} />
-                                <div className="paymentSectionCoupleRow">
-                                    <label >Hora de Nasc.</label>
-                                    <label >Dia de Nasc.</label>
-                                    <input type='time' value={hora1} onChange={(e) => setHora1(e.target.value)} />
-                                    <input type='date' value={data1} onChange={(e) => setData1(e.target.value)} />
-                                </div>
-                                <div className="paymentSectionCoupleRow">
-                                    <label >Bairro de Nasc.</label>
-                                    <label >Cidade de Nasc.</label>
-                                    <input type='text' value={bairro1} onChange={(e) => setBairro1(e.target.value)} />
-                                    <input type='text' value={cidade1} onChange={(e) => setCidade1(e.target.value)} />
-                                </div>
-
-                            </div>
-                            <Button text='Seu Amor' functions={() => setShowLove(true)} />
-                        </>}
-                        {showLove && <>
-                            <h3 className='paymentSectionTitle'>Informações do Seu Amor</h3>
-                            <div className="paymentSectionCouple">
-                                <label >Nome Completo</label>
-                                <input type='text' value={nome2} onChange={(e) => setNome2(e.target.value)} />
-                                <div className="paymentSectionCoupleRow">
-                                    <label >Hora de Nasc.</label>
-                                    <label >Dia de Nasc.</label>
-                                    <input type='time' value={hora2} onChange={(e) => setHora2(e.target.value)} />
-                                    <input type='date' value={data2} onChange={(e) => setData2(e.target.value)} />
-                                </div>
-                                <div className="paymentSectionCoupleRow">
-                                    <label >Bairro de Nasc.</label>
-                                    <label >Cidade de Nasc.</label>
-                                    <input type='text' value={bairro2} onChange={(e) => setBairro2(e.target.value)} />
-                                    <input type='text' value={cidade2} onChange={(e) => setCidade2(e.target.value)} />
-                                </div>
-
-                            </div>
-                            <Button text='Seus Dados' functions={() => setShowLove(false)} />
-                        </>}
-
+                        <button className='payment__sumary-btn'>Confirmar envio</button>
                     </div>
                 </div>
+
+
+
+
+
+
             </div>
 
             {loadingEmail && <div className="backdropLoad">
