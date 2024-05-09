@@ -1,12 +1,11 @@
 import './Toast.css'
 
 export default function Toast({ data, setToast }) {
-    // console.log(data.type);
-    // return
     let paint = ''
     if (data.type === 'error') paint = '#d34949'
     const color = { color: paint }
     const bord = { borderColor: paint }
+    
     return (
         <div className="toast" style={bord}>
             {data.type === 'error' && <i className="fa-solid fa-circle-xmark toast__icon" style={color}></i>}
