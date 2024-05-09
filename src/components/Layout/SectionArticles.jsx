@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import axios from "axios"
-import "./SectionBlog.css"
+import "./SectionArticles.css"
 import urlBack from '../../utils/api.js'
 import Loader from "../Common/Loader.jsx"
 import CardArticle from "./CardArticle.jsx"

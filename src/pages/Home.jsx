@@ -1,8 +1,6 @@
-import { useState } from 'react'
-
 import Header from '../components/Shared/Header'
 import SectionHero from '../components/Layout/SectionHero'
-import SectionBlog from '../components/Layout/SectionBlog'
+import SectionArticles from '../components/Layout/SectionArticles'
 import SectionPrice from '../components/Layout/SectionPrice'
 import SectionSign from '../components/Layout/SectionSign'
 import Footer from '../components/Shared/Footer'
@@ -15,7 +13,7 @@ export default function Home() {
             <Header />
             <div className="content">
                 <SectionHero />
-                <SectionBlog />
+                <SectionArticles />
                 <SectionSign />
                 <SectionPrice />
                 <Stars />

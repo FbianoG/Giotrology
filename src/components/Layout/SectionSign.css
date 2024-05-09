@@ -2,83 +2,79 @@
   margin: 0 0 100px;
 }
 
-.sign__list {
+.sign .list {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-.cardSign {
+/* Card */
+.sign .card {
   width: 350px;
   height: 200px;
   border: 1px solid #fff3;
   overflow: hidden;
   position: relative;
-  
+
+  &:hover {
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    transition: 800ms;
+    border-color: #5362ae;
+  }
 }
 
-.cardSign:hover {
-  backdrop-filter: blur(1px);
-  transition: 800ms;
-}
-
-.signMain {
+.sign .card__data {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   gap: 10px;
 }
 
-.cardSign img {
+.sign .card__data img {
   width: 90px;
   height: 80px;
   object-fit: cover;
 }
 
-.cardSign h3 {
-  font-family: "Smythe", system-ui;
-  color: #fdfdfd;
+.sign .card__title {
   font-size: 40px;
   font-weight: normal;
+  font-family: "Smythe", system-ui;
+  color: #fdfdfd;
 }
 
-.cardSign span {
-  color: #555;
+.sign .card__data-legend {
   font-size: 17px;
+  color: #555;
 }
 
-.signData h3 {
-  margin: 0 0 10px;
-}
-
-.cardSign:hover {
-  border-color: #5362ae;
-}
-
-.signData {
+.sign .card__details {
   display: none;
   width: 100%;
   height: 100%;
-  /* border: 1px solid red; */
   padding: 20px;
   opacity: 0;
 }
 
-.signData span {
-  color: #fdfdfd;
+.sign .card__details-legend {
+  margin: 10px 0 0;
+  display: block;
+  font-size: 17px;
+  color: #eee;
   font-weight: 300;
 }
 
-.cardSign:hover .signMain {
+.sign .card:hover .card__data {
   animation: hidde 300ms both ease;
   -webkit-animation: hidde 300ms both ease;
 }
 
-.cardSign:hover .signData {
+.sign .card:hover .card__details {
   display: block;
   animation: show 300ms both 300ms ease;
   -webkit-animation: show 300ms both 300ms ease;
@@ -87,21 +83,12 @@
 .sign button {
   display: block;
   flex-wrap: wrap;
-  margin: 70px auto 0 ;
+  margin: 70px auto 0;
 }
-.sign button::before {
-content: '';
-width: 100%;
-}
-
 
 
 
 @keyframes hidde {
-  0% {
-    /* opacity: 1; */
-  }
-
   100% {
     opacity: 0;
     display: none;
@@ -112,10 +99,6 @@ width: 100%;
 }
 
 @-webkit-keyframes hidde {
-  0% {
-    /* opacity: 1; */
-  }
-
   100% {
     opacity: 0;
     display: none;
@@ -126,8 +109,6 @@ width: 100%;
 }
 
 @keyframes show {
-  0% {}
-
   100% {
     opacity: 1;
   }
@@ -135,32 +116,7 @@ width: 100%;
 
 
 @-webkit-keyframes show {
-  0% {}
-
   100% {
     opacity: 1;
   }
-}
-
-
-
-
-
-
-
-
-/* MB <= 767 - TB <= 1023 - */
-@media screen and (max-width: 767px) {
-  .contentSign {
-    & h1 {
-      width: 100%;
-    }
-
-    & p {
-      width: 100%;
-    }
-  }
-
-
-
 }

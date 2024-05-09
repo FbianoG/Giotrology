@@ -1,102 +1,93 @@
-.sectionPrice {
+.price {
     margin: 0 0 100px;
 }
 
-.listPrice {
+.price .list {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-.title {
-    font-family: "Smythe", system-ui;
-    font-size: 60px;
-    color: #fdfdfd;
-    margin: 0 0 50px;
-    font-weight: 100;
-}
-
-.cardPrice:hover {
-    box-shadow: 3px 3px 10px #5362ae63;
-    transform: translateY(-5px);
-    backdrop-filter: blur(10px);
-
-}
-
-.cardPrice {
+.price .card {
     width: 350px;
     padding: 30px;
-    border: 1px solid #fff2;
     display: flex;
-    flex-direction: column;
     gap: 10px;
+    flex-direction: column;
+    border: 1px solid #fff2;
     transition: 400ms;
+
+    &:hover {
+        box-shadow: 3px 3px 10px #5362ae63;
+        transform: translateY(-5px);
+        backdrop-filter: blur(10px);
+    }
 }
 
-.widgetDiscont {
-    margin: 0 0 0 auto;
+.price .card__widget {
     width: 80px;
-    background: #5362ae;
     padding: 7px;
-    font-size: 12px;
+    margin: 0 0 0 auto;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    background: #5362ae;
 }
 
-.cardPrice h3 {
-    font-family: "Smythe", system-ui;
+.price .card__title {
     font-size: 25px;
-    color: #fdfdfd;
     font-weight: 100;
+    font-family: "Smythe", system-ui;
+    color: #fdfdfd;
 }
 
-.widgetPrice {
-    color: #fdfdfd;
+.price .card__price {
     height: max-content;
-    font-family: "Smythe", system-ui;
     font-size: 60px;
     font-weight: 100;
+    font-family: "Smythe", system-ui;
+    color: #fdfdfd;
 }
 
-.widgetPrice span {
-    color: #888;
+.price .card__price-legend {
     font-size: 20px;
+    color: #888;
 }
 
-.cardDivisor {
+.price .card__divider {
     width: 100%;
     height: 1px;
-    background: #fff2;
     margin: 10px 0;
+    background: #fff2;
 }
 
-.cardDescription {
+.price .card__details {
+    margin: 0 0 20px;
     display: flex;
-    flex-direction: column;
     gap: 10px;
+    flex-direction: column;
     font-size: 17px;
     font-weight: 200;
     color: #fdfdfd;
-    margin: 0 0 20px;
 }
 
- .cardPrice a {
+.price .card__link {
     width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 16px;
+    text-decoration: none;
     color: #fdfdfd;
     background: #5362ae;
     border: none;
     cursor: pointer;
-    padding: 10px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.cardPrice a:hover {
-    transition: 400ms;
-    filter: brightness(1.3);
+    &:hover {
+        transition: 400ms;
+        filter: brightness(1.3);
+    }
 }

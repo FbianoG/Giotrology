@@ -1,65 +1,55 @@
 import "./SectionPrice.css"
+import HeadSection from '../Common/HeadSection'
 
 export default function SectionPrice() {
 
     return (
-        <section className="sectionPrice" id="sectionPrice">
-            <h1 className="title">Nossos preços</h1>
-            <div className="listPrice">
-                <div className="cardPrice" style={{ opacity: 0.3 }}>
-                    <div className="widgetDiscont">
-                        10% OFF
+        <section className="price" id="sectionPrice">
+            <HeadSection data={{title:'Nosso Preço', legend:'Leitura Astral', text:'Explore as influências cósmicas em sua vida, obtenha insights pessoais e orientação para tomar decisões mais conscientes.'}} />
+            <div className="list">
+                <div className="card" style={{ opacity: 0.3 }}>
+                    <div className="card__widget">10% OFF</div>
+                    <h3 className="card__title">Revolução Solar</h3>
+                    <h2 className="card__price">R$50 <span className="card__price-legend">/ por consulta</span></h2>
+                    <div className="card__divider"></div>
+                    <div className="card__details">
+                        <span className="card__details-item">Pergunte ao Astrólogo</span>
+                        <span className="card__details-item">Suporte Online</span>
+                        <span className="card__details-item">Consultoria Astral</span>
+                        <span className="card__details-item">Interaja ao Vivo</span>
+                        <span className="card__details-item">Análise de Futuro</span>
                     </div>
-                    <h3>Revolução Solar</h3>
-                    <h2 className="widgetPrice">R$50 <span>/ por consulta</span></h2>
-                    <div className="cardDivisor"></div>
-                    <div className="cardDescription">
-                        <span>Pergunte ao Astrólogo</span>
-                        <span>Suporte Online</span>
-                        <span>Consultoria Astral</span>
-                        <span>Interaja ao Vivo</span>
-                        <span>Análise de Futuro</span>
-                        {/* <span>Dúvidas</span> */}
-                    </div>
-                    <a>Consulte Agora</a>
+                    <a className="card__link">Consulte Agora</a>
                 </div>
-                <div className="cardPrice" style={{ opacity: 0.3 }}>
-                    <div className="widgetDiscont">
-                        10% OFF
+                <div className="card" style={{ opacity: 0.3 }}>
+                    <div className="card__widget">10% OFF</div>
+                    <h3 className="card__title">Mapa Astral</h3>
+                    <h2 className="card__price">R$70 <span className="card__price-legend">/ por consulta</span></h2>
+                    <div className="card__divider"></div>
+                    <div className="card__details">
+                        <span className="card__details-item">Pergunte ao Astrólogo</span>
+                        <span className="card__details-item">Suporte Online</span>
+                        <span className="card__details-item">Consultoria Astral</span>
+                        <span className="card__details-item">Interaja ao Vivo</span>
+                        <span className="card__details-item">Análise de Futuro</span>
                     </div>
-                    <h3>Mapa Astral</h3>
-                    <h2 className="widgetPrice">R$70 <span>/ por consulta</span></h2>
-                    <div className="cardDivisor"></div>
-                    <div className="cardDescription">
-                        <span>Pergunte ao Astrólogo</span>
-                        <span>Suporte Online</span>
-                        <span>Consultoria Astral</span>
-                        <span>Interaja ao Vivo</span>
-                        <span>Análise de Futuro</span>
-                        {/* <span>Dúvidas</span> */}
-                    </div>
-                    <a >Consulte Agora</a>
+                    <a className="card__link">Consulte Agora</a>
                 </div>
-                <div className="cardPrice">
-                    <div className="widgetDiscont">
-                        10% OFF
+                <div className="card">
+                    <div className="card__widget">10% OFF</div>
+                    <h3 className="card__title">Sinastria Amorosa</h3>
+                    <h2 className="card__price">R$120 <span className="card__price-legend">/ por consulta</span></h2>
+                    <div className="card__divider"></div>
+                    <div className="card__details">
+                        <span className="card__details-item">Compatibilidade Amorosa</span>
+                        <span className="card__details-item">Orientação do Futuro Amoroso</span>
+                        <span className="card__details-item">Baixe Seu Mapa em PDF</span>
+                        <span className="card__details-item">Identifique Áreas de Intensidade</span>
+                        <span className="card__details-item">Fortaleça Áreas Importantes</span>
                     </div>
-                    <h3>Sinastria Amorosa</h3>
-                    <h2 className="widgetPrice">R$120 <span>/ por consulta</span></h2>
-                    <div className="cardDivisor"></div>
-                    <div className="cardDescription">
-                        <span>Compatibilidade Amorosa</span>
-                        <span>Orientação do Futuro Amoroso</span>
-                        <span>Baixe Seu Mapa em PDF</span>
-                        <span>Identifique Áreas de Intensidade</span>
-                        <span>Fortaleça Áreas Importantes</span>
-
-                    </div>
-                    <a href="/payment">Consulte Agora</a>
+                    <a className="card__link" href="/payment">Consulte Agora</a>
                 </div>
             </div>
-
-
         </section>
     )
 }

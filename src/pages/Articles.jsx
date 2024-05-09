@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import './Articles.css'
 import Stars from "../components/Common/Stars";
 import Footer from "../components/Shared/Footer";
 import Header from "../components/Shared/Header";
