@@ -1,93 +1,76 @@
 import { useRef, useState } from 'react';
+import { useForm } from "react-hook-form";
 import './Payment.css';
 import Button from '../components/Common/Button'
-import Stars from '../components/Common/Stars';
-import Footer from '../components/Shared/Footer';
 import Header from '../components/Shared/Header';
 import Loader from "../components/Common/Loader";
+import Stars from '../components/Common/Stars';
+import Footer from '../components/Shared/Footer';
 
 export default function Payment() {
 
-    const [nome1, setNome1] = useState('')
-    const [nome2, setNome2] = useState('')
-    const [bairro1, setBairro1] = useState('')
-    const [bairro2, setBairro2] = useState('')
-    const [cidade1, setCidade1] = useState('')
-    const [cidade2, setCidade2] = useState('')
-    const [estado1, setEstado1] = useState('')
-    const [estado2, setEstado2] = useState('')
-    const [data1, setData1] = useState('')
-    const [data2, setData2] = useState('')
-    const [hora1, setHora1] = useState('')
-    const [hora2, setHora2] = useState('')
-    const [email, setEmail] = useState('')
-    const [bandeira, setBandeira] = useState('1')
+    // Variáveis
+    const { register, handleSubmit, errors, reset } = useForm();
     const [loadingEmail, setLoadingEmail] = useState(false)
+    const [bandeira, setBandeira] = useState('1')
 
 
-    emailjs.init("ceAIIFLHMCK_ganFy") // public key - iniciar fora da function
-    async function sendEmail(e) { // Envia o formulário de contato para meu Email
-        e.preventDefault()
+    // Funções
+    async function sendEmail(data) {
         setLoadingEmail(true)
-        const formContact = { nome1, nome2, bairro1, bairro2, cidade1, cidade2, data1, data2, hora1, hora2, email }
-        if (!nome1, !nome2, !bairro1, !bairro2, !cidade1, !cidade2, !data1, !data2, !hora1, !hora2, !email) {
-            window.alert('Preencha todos os campos!')
-            setLoadingEmail(false)
-            return
-        }
         try {
-            const response = await emailjs.send('service_oc8e0g4', 'template_082zxcb', formContact) // service, template, formulário
-            console.log(response);
-
+            const response = await emailjs.send(import.meta.env.VITE_REACT_APP_SERVICE, import.meta.env.VITE_REACT_APP_TEMPLATE, data)
+            reset()
         } catch (error) {
             console.log('Erro ao enviar e-mail:', error);
         }
         setLoadingEmail(false)
     }
 
+    // Chamadas
+    emailjs.init(import.meta.env.VITE_REACT_APP_PUBLIC_KEY)
 
 
-
-    const [showLove, setShowLove] = useState(false)
     return (
         <>
             <Header />
             <div className="content">
-                <div className="container__payment">
-                    <form className="payment__form">
+                <h1 className='main__title'>Sinastria Amorosa</h1>
+                <form className="container__payment" onSubmit={handleSubmit(sendEmail)}>
+                    <div className="payment__form">
                         <fieldset>
                             <h3 className="payment__title">Informações de contato</h3>
                             <label htmlFor="email">E-mail</label>
-                            <input id="email" type="email" />
+                            <input id="email" type="email" {...register("email", { required: true })} />
                         </fieldset>
                         <fieldset>
                             <h3 className="payment__title">Sinastria - Pessoa 1</h3>
                             <label htmlFor="name1">Nome Completo</label>
-                            <input id="name1" type="text" />
+                            <input id="name1" type="text" {...register("name1", { required: true })} />
                             <label htmlFor="city1">Cidade de Nascimento</label>
-                            <input id="city1" type="text" />
+                            <input id="city1" type="text" {...register("city1", { required: true })} />
                             <label htmlFor="bairro1">Bairro de Nascimento</label>
-                            <input id="bairro1" type="text" />
+                            <input id="bairro1" type="text" {...register("bairro1", { required: true })} />
                             <label id="date1" htmlFor="">Data de Nascimento</label>
-                            <input id="date1" type="date" />
+                            <input id="date1" type="date" {...register("date1", { required: true })} />
                             <label htmlFor="time1">Hora de Nascimento</label>
-                            <input id="time1" type="time" />
+                            <input id="time1" type="time" {...register("time1", { required: true })} />
                         </fieldset>
                         <fieldset>
                             <h3 className="payment__title">Sinastria - Pessoa 2</h3>
                             <label htmlFor="name2">Nome Completo</label>
-                            <input type="text" />
+                            <input type="text"  {...register("name2")} />
                             <label htmlFor="city2">Cidade de Nascimento</label>
-                            <input type="text" />
+                            <input type="text" {...register("city2")} />
                             <label htmlFor="bairro2">Bairro de Nascimento</label>
-                            <input type="text" />
+                            <input type="text" {...register("bairro2")} />
                             <label htmlFor="date2">  Data de Nascimento</label>
-                            <input type="date" />
+                            <input type="date" {...register("date2")} />
                             <label htmlFor="time2">Hora de Nascimento</label>
-                            <input type="time" />
+                            <input type="time" {...register("time2")} />
                         </fieldset>
                         <h3 className="payment__title">Informações de Pagamento</h3>
-                        <fieldset className="fieldset--flex">
+                        <fieldset className="fieldset -flex">
                             <div className="payment__method-item">
                                 <img src="https://cdn-icons-png.flaticon.com/512/71/71227.png" alt="" />
                                 <p>Cartão</p>
@@ -109,7 +92,7 @@ export default function Payment() {
                             <label htmlFor="cvv">Cvv</label>
                             <input id="cvv" type="number" />
                         </fieldset>
-                    </form>
+                    </div>
                     <div className="payment__sumary">
                         <h3 className='payment__title'>Sumário de compra</h3>
                         <div className="payment__sumary-product">
@@ -133,64 +116,13 @@ export default function Payment() {
                             <p className='payment__sumary-price--large'><strong>R$31,50</strong></p>
                         </div>
                         <span className='payment__sumary-divider'></span>
-                        <button className='payment__sumary-btn'>Confirmar envio</button>
+                        <button className='payment__sumary-btn' type='submit'>Confirmar envio</button>
                     </div>
-                </div>
-
-
-
-
-
-
+                </form>
             </div>
-
-            {loadingEmail && <div className="backdropLoad">
-                <Loader />
-            </div>}
-
+            {loadingEmail && <div className="backdropLoad"><Loader /></div>}
             <Stars />
             <Footer />
         </>
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-{/* {modal &&
-                    <div className="mapData-modal">
-                        <div className="mapData-data">
-                            <h3>Leitura de Mapa Astral</h3>
-                            <form className="mapData-form">
-                                <label >Nome Completo:</label>
-                                <input type='text' />
-                                <label >E-mail:</label>
-                                <input type='email' />
-                                <h4>Sobre seu nascimento</h4>
-                                <label >Bairro:</label>
-                                <input type='text' />
-                                <label >Cidade:</label>
-                                <input type='text' />
-                                <label >Estado:</label>
-                                <input type='text' />
-                                <label >Data:</label>
-                                <input type='date' />
-                                <label >Hora:</label>
-                                <input type='time' />
-                                <div className="mapData-formBtns">
-                                    <button className='btnCancel' onClick={() => setModal(false)}>Cancelar</button>
-                                    <Button type="submit" main="true" text="Enviar" />
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                } */}
