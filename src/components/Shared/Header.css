@@ -1,40 +1,43 @@
 header {
+  height: 70px;
   display: flex;
-  gap: 20px;
   justify-content: space-around;
   align-items: center;
-  height: 70px;
+  gap: 20px;
+}
 
-  & nav {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-  }
+.header__logo {
+  font-family: "Qwitcher Grypen", cursive;
+  font-size: 50px;
+  color: #fdfdfd;
+}
 
-  & nav:hover a:not(:hover) {
-    opacity: 0.3;
-    filter: blur(0.5px);
-  }
+.header__nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
 
-  & a {
-    color: #fdfdfd;
-    text-decoration: none;
-    font-size: 20px;
-    transition: 400ms;
-    border-bottom: 2px solid transparent;
-  }
+.header__nav:hover .header__nav-item:not(:hover) {
+  opacity: 0.3;
+}
 
-  & a:hover {
-    /* opacity: 0.5; */
+.header__nav-item {
+  font-size: 20px;
+  color: #fdfdfd;
+  border-bottom: 2px solid transparent;
+  transition: 300ms;
+
+  &:hover {
     border-bottom-color: #5362ae;
   }
+}
 
-  & .logo {
-    font-family: "Qwitcher Grypen", cursive;
-    color: #fdfdfd;
-    font-size: 50px;
-  }
+.header__nav a {
+  color: inherit;
+  text-decoration: inherit;
 }
 
 .header__btnMenu {
@@ -58,7 +61,7 @@ header {
     z-index: 10;
   }
 
-  header nav {
+  .header__nav {
     width: 300px;
     height: 100vh;
     padding: 40px;
@@ -83,14 +86,10 @@ header {
     }
   }
 
-  header nav:hover a:not(:hover) {
+  .header__nav:hover .header__nav-item:not(:hover) {
     opacity: 1;
     filter: none;
   }
-
-
-
-
 
   .header__btnMenu {
     display: block;

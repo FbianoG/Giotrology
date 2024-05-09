@@ -1,20 +1,19 @@
 footer {
-    margin: auto 0 0 0;
-    background: url("https://www.pixel4k.com/wp-content/uploads/2019/03/stars-minimalism-space-digital-art_1551641886.jpg.webp");
-    background-attachment: fixed;
-    /* background-position: center; */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 20px;
-    align-items: center;
-    padding: 0 5%;
     width: 100%;
     height: 300px;
+    padding: 0 5%;
+    margin: auto 0 0 0;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+    background: url("https://www.pixel4k.com/wp-content/uploads/2019/03/stars-minimalism-space-digital-art_1551641886.jpg.webp");
+    background-attachment: fixed;
 }
 
-footer .backdrop {
+.footer__backdrop {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -24,91 +23,88 @@ footer .backdrop {
     background: linear-gradient(to bottom, #10121e, #0a0a1569);
 }
 
-footer .description {
+.footer__datails {
     position: relative;
 }
 
-footer h3 {
-    font-family: "Smythe", system-ui;
-    color: #fdfdfd;
+.footer__datails-title {
+    margin: 0 0 10px;
     font-size: 40px;
     font-weight: 100;
-    margin: 0 0 10px;
-}
-
-.descriptionData {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-}
-
-.descriptionData a {
-    color: #aaa;
-    font-weight: 300;
-    text-decoration: none;
-    transition: 400ms;
-}
-
-.descriptionData a:hover {
-    opacity: 0.5;
-}
-
-footer h1 {
-    font-family: "Qwitcher Grypen", cursive;
-    font-size: 100px;
-    font-weight: 100;
+    font-family: "Smythe", system-ui;
     color: #fdfdfd;
 }
 
-footer .logo {
+.footer__details-nav {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    list-style: none;
+}
+
+footer .details__nav-item {
+    font-weight: 300;
+    color: #aaa;
+    transition: 400ms;
+
+    &:hover {
+        opacity: 0.5;
+    }
+
+    & a {
+        color: inherit;
+        text-decoration: inherit;
+    }
+}
+
+.footer__logo {
     position: relative;
     width: fit-content;
 }
 
-.logoSocial {
+.footer__logo-title {
+    font-size: 100px;
+    font-weight: 100;
+    font-family: "Qwitcher Grypen", cursive;
+    color: #fdfdfd;
+}
+
+.footer__logo-icons {
     width: 100%;
-    /* border: 1px solid red; */
-    display: flex;
-    justify-content: space-evenly;
-    /* gap: 55px; */
-    align-items: center;
     margin: 20px 0 0 0;
-}
-
-.logoSocial a {
-    text-decoration: none;
-    color: var(--corBtn);
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
 }
 
-.logoSocial i {
+.logo__icons-itens {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
     font-size: 30px;
-    transition: 400ms;
-}
+    color: var(--corBtn);
 
-.logoSocial i:hover {
-    opacity: 0.4;
-}
+    &:hover {
+        opacity: 0.4;
+    }
 
+    & i {
+        transition: 400ms;
+    }
+}
 
 
 /* MB <= 767 - TB <= 1023 - */
 @media screen and (max-width: 767px) {
 
     footer {
-        height: 450px;
-        align-items: flex-start;
+        height: max-content;
+        padding: 50px 5%;
+        gap: 80px 20px;
     }
 
-    .logo {
+    .footer__logo {
         order: -1;
         z-index: 1;
-
-    }
-
-    .logoSocial {
-        margin: 55px 0 0 0;
     }
 }

@@ -1,0 +1,31 @@
+.head__section {
+    width: 50%;
+    min-width: 50%;
+}
+
+.head__section-legend {
+    color: #524196;
+    font-size: 20px;
+}
+
+.head__section-title {
+    margin: 10px 0;
+    font-size: 60px;
+    font-weight: 100;
+    font-family: "Smythe", system-ui;
+    color: #fdfdfd;
+}
+
+.head__section-description {
+    margin: 0 0 50px;
+    font-weight: 300;
+    font-size: 20px;
+    color: #ddd;
+}
+
+/* MB <= 767 - TB <= 1023 - */
+@media screen and (max-width: 767px) {
+    .head__section {
+        width: 100%;
+    }
+}

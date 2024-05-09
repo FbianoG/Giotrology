@@ -1,63 +1,11 @@
-@import url("../../App.css");
-
-.sectionBlog {
+.articles {
     margin: 0 0 100px;
 }
 
-
-.contentBlog {
-    & span {
-        color: var(--corDarkText);
-        font-size: 20px;
-    }
-
-    & h1 {
-        font-family: "Smythe", system-ui;
-        color: var(--corWhiteText);
-        font-size: 60px;
-        font-weight: 300;
-        width: 50%;
-        margin: 20px 0 30px 0;
-    }
-
-    & p {
-        font-size: 20px;
-        color: #aaa;
-        width: 50%;
-        font-weight: 300;
-        margin: 0 0 50px;
-    }
-
-}
-
-.listBlog {
+.articles__list {
+    margin: 0 0 80px;
     display: flex;
+    gap: 80px 20px;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 80px 20px;
-    margin: 0 0 80px;
-}
-
-
-
-
-
-
-
-/* MB <= 767 - TB <= 1023 - */
-@media screen and (max-width: 767px ) {
-
-    .contentBlog {
-
-        & h1 {
-          width: 100%;
-        }
-    
-        & p {
-          width: 100%;
-        }
-    
-      }
-
-
 }

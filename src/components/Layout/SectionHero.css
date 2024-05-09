@@ -1,0 +1,53 @@
+.hero {
+  width: 100%;
+  margin: 0 0 100px;
+  display: flex;
+  align-items: center;
+}
+
+.hero__content {
+  min-width: 50%;
+}
+
+.hero .head__section {
+  width: 100%;
+}
+
+.hero .head__section-title {
+  font-size: 90px;
+}
+
+.hero__content-buttons {
+  display: flex;
+  gap: 40px;
+}
+
+
+/* MB <= 767 - TB <= 1023 - */
+@media screen and (max-width: 767px) {
+
+  .hero {
+    margin: 0 0 100px;
+  }
+
+  .hero__content {
+    width: 100%;
+  }
+
+  .hero__content:nth-last-child(1) {
+    display: none;
+  }
+
+  .hero__content-buttons {
+    gap: 10px;
+  }
+
+  .hero__content {
+    font-size: 60px;
+  }
+
+  .hero .head__section-title {
+    font-size: 60px;
+  }
+
+}

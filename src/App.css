@@ -1,11 +1,5 @@
-
-
 .content {
   padding: 0px 5% 0;
-}
-
-section {
-  padding: 0px 0 0 0;
 }
 
 ::-webkit-scrollbar {
@@ -14,7 +8,6 @@ section {
 
 ::-webkit-scrollbar-track {
   background: #11161f;
-
 }
 
 ::-webkit-scrollbar-thumb {
@@ -22,11 +15,29 @@ section {
   border-radius: 3px;
 }
 
-
 :root {
   --corBtn: #5362ae;
   --corDarkText: #524196;
   --corWhiteText: #fdfdfd
+}
+
+.btnViewMore {
+  width: 300px;
+  line-height: 60px;
+  font-size: 16px;
+  padding: 0 30px;
+  margin: 0 auto;
+  width: fit-content;
+  display: block;
+  color: #fdfdfd;
+  text-decoration: none;
+  border: 1px solid #fff2;
+}
+
+.btnViewMore:hover {
+  transition: 400ms;
+  border-color: #fff3;
+  color: #5362ae;
 }
 
 

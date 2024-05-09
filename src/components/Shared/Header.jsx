@@ -11,24 +11,19 @@ export default function Header() {
         else setShowMenu(true)
     }
 
-    useEffect(() => {
-        if (window.innerWidth <= 767) {
-            setShowMenu(false);
-        }
-    }, []);
+    useEffect(() => { if (window.innerWidth <= 767) setShowMenu(false) }, []);
 
     return (
         <header>
-
-            <div className="logo">
-                Giotrology
-            </div>
+            <div className="header__logo">Giotrology</div>
             {showMenu &&
                 <nav >
-                    <a href="/">Início</a>
-                    <a href="/articles">Artigos</a>
-                    <a href="#sectionSign">Signos</a>
-                    <a href="/payment">Mapa Astral</a>
+                    <ul className="header__nav">
+                        <li className="header__nav-item"><a href="/">Início</a></li>
+                        <li className="header__nav-item"><a href="/articles">Artigos</a></li>
+                        <li className="header__nav-item"><a href="#sectionSign">Signos</a></li>
+                        <li className="header__nav-item"><a href="/payment">Mapa Astral</a></li>
+                    </ul>
                 </nav>
             }
             <button className="header__btnMenu" onClick={changeMenu}>

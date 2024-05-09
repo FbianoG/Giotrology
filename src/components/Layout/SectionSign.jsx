@@ -1,5 +1,7 @@
 import { useState } from "react"
 import "./SectionSign.css"
+import HeadSection from "../Common/HeadSection";
+
 import Button from '../Common/Button'
 
 export default function SectionSign() {
@@ -81,31 +83,22 @@ export default function SectionSign() {
     const [countSign, setCountSign] = useState(6)
     const [btnText, setBtnText] = useState("Veja mais...")
 
-function changeCount() {
-    if (countSign === 6) {
-        setBtnText("Ver menos")
-        setCountSign(12)
-        return
+    function changeCount() {
+        if (countSign === 6) {
+            setBtnText("Ver menos")
+            setCountSign(12)
+            return
+        }
+        setBtnText("Ver mais...")
+        setCountSign(6)
     }
-    setBtnText("Ver mais...")
-    setCountSign(6)
-}
 
     return (
-        <section className='sectionSign' id="sectionSign">
-
-            <div className="contentSign">
-                <span>Signos do Zodiáco</span>
-                <h1>Saiba Um Pouco Mais Sobre Todos Os Signos do Zodíaco</h1>
-                <p>Embarque em uma jornada cósmica única e mergulhe nos mistérios profundos que envolvem cada um dos doze signos do zodíaco.</p>
-            </div>
-
-            <div className="listSign">
-
+        <section className='sign' id="sectionSign">
+            <HeadSection data={{ legend: "Signos do Zodiáco", title: 'Saiba Um Pouco Mais Sobre Todos Os Signos do Zodíaco', text: 'Embarque em uma jornada cósmica única e mergulhe nos mistérios profundos que envolvem cada um dos doze signos do zodíaco.' }} />
+            <div className="sign__list">
                 {signs.map((element, index) => {
-                    if (index >= countSign) {
-                        return
-                    }
+                    if (index >= countSign) return
                     return (
                         <div key={element.name} className="cardSign" >
                             <div className="signMain">
@@ -121,8 +114,7 @@ function changeCount() {
                     )
                 })}
             </div>
-                <Button type="button" text={btnText}  main={false} functions={changeCount} />
-
+            <Button type="button" text={btnText} main={false} functions={changeCount} />
         </section >
     )
 }
