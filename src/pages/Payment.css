@@ -16,7 +16,7 @@
     min-width: 300px;
 }
 
-fieldset {
+.payment__form fieldset {
     padding: 0 0 20px 0;
     margin: 0 0 20px 0;
     display: flex;
