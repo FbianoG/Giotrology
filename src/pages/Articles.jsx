@@ -6,36 +6,34 @@ import Header from "../components/Shared/Header";
 import urlBack from '../utils/api.js'
 import CardArticle from "../components/Layout/CardArticle.jsx";
 import axios from "axios";
+import HeadSection from "../components/Common/HeadSection.jsx";
+import Loader from "../components/Common/Loader.jsx";
 
 export default function Articles() {
 
-    const [Articles, setArticles] = useState(false)
+    const [articles, setArticles] = useState(false)
 
     async function getArticles() {
         const response = await axios.post(`${urlBack}/getArticles`)
-        console.log(response);
         setArticles(response.data)
     }
 
-    useEffect(() => {
-        getArticles()
-    }, [])
+    useEffect(() => {getArticles()}, [])
 
     return (
         <>
             <Header />
             <div className="content">
-                <h1 className="list__articles-title">Todos os Artigos</h1>
-                <div className="list__articles">
-                    {Articles &&
-                        Articles.map(element => (
-                            <CardArticle key={element._id} data={element} />
-                        ))
-                    }
+                <HeadSection data={{ title: 'Todos os Artigos', text: 'Por Giovanna Salles' }} />
+                <div className="articles__list">
+                    {articles && articles.map((element, index) => {
+                        if (index >= 3) return
+                        return <CardArticle key={index} data={element} />
+                    })}
+                    {!articles && <Loader />} :
                 </div>
-
-                <Stars />
             </div>
+            <Stars />
             <Footer />
         </>
     )
