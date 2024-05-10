@@ -1,0 +1,12 @@
+.list__articles {
+    display: flex;
+    margin: 100px 0;
+    gap: 50px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.list__articles-title {
+    color: #fdfdfd;
+    display: none;
+}
