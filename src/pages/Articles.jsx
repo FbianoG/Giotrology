@@ -4,23 +4,17 @@ import Footer from "../components/Shared/Footer";
 import Header from "../components/Shared/Header";
 import urlBack from '../utils/api.js'
 import CardArticle from "../components/Layout/CardArticle.jsx";
+import axios from "axios";
 
 export default function Articles() {
 
     const [Articles, setArticles] = useState(false)
 
     async function getArticles() {
-        const response = await fetch(`${urlBack}/getArticles`, {
-            method: "POST",
-            body: JSON.stringify(),
-            headers: { "Content-Type": "application/json" }
-        })
-        const data = await response.json()
-        if (response.ok) {
-            setArticles(data)
-        }
+        const response = await axios.post(`${urlBack}/getArticles`)
+        setArticles(response.data)
     }
-  
+
     useEffect(() => {
         getArticles()
     }, [])
