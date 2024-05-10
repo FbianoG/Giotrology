@@ -14,9 +14,9 @@ O "Giotrology" é um site interativo de astrologia, desenvolvido em React, Node.
 
 ## Recursos e Funcionalidades
 
-**Leitura de Mapa Astral:** Usuários podem solicitar leituras de mapa astral personalizadas.
-**Gerenciamento de Artigos:** Capacidade da astróloga de publicar, editar e deletar artigos.
-**Consulta de Artigos:** Usuários podem ler artigos sobre astrologia.
+- **Leitura de Mapa Astral:** Usuários podem solicitar leituras de mapa astral personalizadas.
+- **Gerenciamento de Artigos:** Capacidade da astróloga de publicar, editar e deletar artigos.
+- **Consulta de Artigos:** Usuários podem ler artigos sobre astrologia.
 
 ## Tecnologias Utilizadas
 
