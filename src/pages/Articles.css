@@ -5,8 +5,3 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
-
-.list__articles-title {
-    color: #fdfdfd;
-    display: none;
-}

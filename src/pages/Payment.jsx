@@ -32,9 +32,9 @@ export default function Payment() {
         setLoadingEmail(false)
     }
 
+
     // Chamadas
     emailjs.init(import.meta.env.VITE_REACT_APP_PUBLIC_KEY)
-
 
     return (
         <>
@@ -111,14 +111,14 @@ export default function Payment() {
                         <span className='payment__sumary-divider'></span>
                         <div className="payment__sumary-pricing">
                             <p>Subtotal</p>
-                            <p><strong>R$35,00</strong></p>
+                            <p><strong>R$120,00</strong></p>
                             <p>Taxas</p>
                             <p><strong>R$0,00</strong></p>
                             <p>Desconto</p>
-                            <p><strong>R$3,50</strong></p>
+                            <p><strong>R$12,00</strong></p>
                             <span className='payment__sumary-divider -pricing'></span>
                             <p className='payment__sumary-price--large'><strong>Total</strong></p>
-                            <p className='payment__sumary-price--large'><strong>R$31,50</strong></p>
+                            <p className='payment__sumary-price--large'><strong>R$108,00</strong></p>
                         </div>
                         <span className='payment__sumary-divider'></span>
                         <button className='payment__sumary-btn' type='submit'>Confirmar envio</button>
