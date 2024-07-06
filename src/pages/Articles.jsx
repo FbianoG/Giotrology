@@ -27,7 +27,6 @@ export default function Articles() {
                 <HeadSection data={{ title: 'Todos os Artigos', text: 'Por Giovanna Salles' }} />
                 <div className="articles__list">
                     {articles && articles.map((element, index) => {
-                        if (index >= 3) return
                         return <CardArticle key={index} data={element} />
                     })}
                     {!articles && <Loader />} :

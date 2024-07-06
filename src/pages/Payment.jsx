@@ -74,7 +74,7 @@ export default function Payment() {
                             <label htmlFor="time2">Hora de Nascimento</label>
                             <input type="time" {...register("time2")} />
                         </fieldset>
-                        <h3 className="payment__title">Informações de Pagamento</h3>
+                        {/* <h3 className="payment__title">Informações de Pagamento</h3>
                         <fieldset className="fieldset -flex">
                             <div className="payment__method-item">
                                 <img src="https://cdn-icons-png.flaticon.com/512/71/71227.png" alt="" />
@@ -85,8 +85,8 @@ export default function Payment() {
                                 <img src="https://logopng.com.br/logos/pix-106.png" alt="" />
                                 <p>Pix</p>
                             </div>
-                        </fieldset>
-                        <fieldset>
+                        </fieldset> */}
+                        {/* <fieldset>
                             <h3 className="payment__title">Pagamento</h3>
                             <label htmlFor="card">Número do Cartão</label>
                             <input id="card" type="number" />
@@ -96,7 +96,7 @@ export default function Payment() {
                             <input id="validad" type="text" />
                             <label htmlFor="cvv">Cvv</label>
                             <input id="cvv" type="number" />
-                        </fieldset>
+                        </fieldset> */}
                     </div>
                     <div className="payment__sumary">
                         <h3 className='payment__title'>Sumário de compra</h3>
@@ -105,7 +105,7 @@ export default function Payment() {
                             <div className="sumary__product-details">
                                 <p><strong>Sinastria Amorosa</strong></p>
                                 <p>p/ 2 pessoas</p>
-                                <p><strong>R$35,00</strong></p>
+                                <p><strong>R$120,00</strong></p>
                             </div>
                         </div>
                         <span className='payment__sumary-divider'></span>
